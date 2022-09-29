@@ -1,0 +1,43 @@
+  <!-- Création d'un article------------->
+
+  <div class="wrapper">
+      <form method="POST" action="/article/add" enctype="multipart/form-data">
+          <div class="dbl-field">
+              <div class="field">
+                  <label for="category" class="category">Catégories :</label>
+                  <select class="categories" id="category" name="categoryArticle_id">
+                      <?php foreach ($params["categories"] as $categoryArticle): ?>
+                      <option value="<?= $categoryArticle['id'];?>">
+                          <?=  $categoryArticle['name'] ?? NULL; ?> </option>
+                      <?php endforeach; ?>
+                  </select>
+              </div>
+          </div>
+          <div class="dbl-field">
+              <div class="field">
+                  <label for="">Titre :</label><span class="required">*</span>
+                  <input type="text" name="title" value="<?php if (!empty($title)) echo $title; ?>">
+              </div>
+              <?php if (!empty($params['errors']['title'])) {
+           echo '<div style = "color:red;">' . $params['errors']['title']. '</div>'; }?>
+          </div>
+          <div class="field">
+              <div class="message">
+                  <label for="msg">Description :</label><span class="required">*</span>
+                  <textarea id="msg" name="description" placeholder="Saisissez votre Description..."></textarea>
+              </div>
+          </div>
+          <?php if (!empty($params['errors']['description'])) {
+           echo '<div style = "color:red;">' . $params['errors']['description']. '</div>'; }?>
+          <div class="dbl-field">
+              <div class="field">
+                  <label for="image">Image :</label><span class="required">*</span>
+                  <input type="file" class="input" id="image" name="img" value="">
+              </div>
+          </div>
+          <div class=" button-area">
+              <button type="submit">Ajouter un article</button>
+          </div>
+      </form>
+  </div>
+  <?php require_once '../templates/template_part/_footer.phtml';?>

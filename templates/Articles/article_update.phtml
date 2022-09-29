@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <form method="POST" action="" enctype="multipart/form-data">
+        <div class="dbl-field">
+            <div class="field">
+                <label for="category" class="category">Catégories :</label>
+                <select class="categories" id="category" name="categoryArticle_id">
+                    <?php foreach ($params["categories"] as $categoryArticle): ?>
+                    <option value="<?= $categoryArticle['id'];?>"><?= $categoryArticle['name'];?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <div class="dbl-field">
+            <div class="field">
+                <label for="">Titre :</label><span class="required">*</span>
+                <input type="text" name="title"
+                    value="<?php if (!empty($params['article']['title'])) echo $params['article']['title']; ?>">
+            </div>
+            <?php if (!empty($params['errors']['title'])) {
+           echo '<div style = "color:red;">' . $params['errors']['title']. '</div>'; }?>
+        </div>
+        <div class="field">
+            <div class="message">
+                <label for="msg">Description :</label><span class="required">*</span>
+                <textarea id="msg" name="description"
+                    placeholder="Saisissez votre Description..."><?php if (!empty($params['article']['description'])) echo $params['article']['description'] ; ?></textarea>
+            </div>
+        </div>
+        <?php if (!empty($params['errors']['description'])) {
+           echo '<div style = "color:red;">' . $params['errors']['description']. '</div>'; }?> <div class="dbl-field">
+            <div class="field img">
+                <label for="image">Image :</label><span class="required">*</span>
+                <input type="file" class="input" id="image" name="file_path_img"
+                    value="<?= (!empty($params['article']['c'])) ? $params['article']['file_path_img'] : '' ; ?>">
+                <div
+                    style="<?= (!empty($params['errors']['file_path_img'])) ? 'display:block; color:red;' :'display:none;';?>">
+                    <?= $params['errors']['file_path_img'];?>
+                </div>
+            </div>
+        </div>
+        <div class="button-area">
+            <button type="submit">Modifier</button>
+        </div>
+    </form>
+</div>

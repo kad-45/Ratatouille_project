@@ -1,0 +1,37 @@
+    <nav class="navbar dark-mode" role="navigation">
+        <div class="navbar_logo"><img src="/assets/icons/logo-r.jpg" alt=""></div>
+        <ul class="navbar_links">
+            <li class="navbar_link first"><a href="/home/index">Accueil</a></li>
+            <li class="navbar_link second"><a href="/recipe/index/5">Cocktails</a></li>
+            <li class="navbar_link seventh"><a href="/recipe/index/1">Apéritifs</a></li>
+            <li class="navbar_link third"><a href="/recipe/index">Recettes<i class="fa fa-caret-down"></i></a>
+                <div class="dropdown_content">
+                    <!-- <a href="../../recipe/index/1">Apéritif</a> -->
+                    <a href="../../recipe/index/2">Entrées</a>
+                    <a href="../../recipe/index/3">plats</a>
+                    <a href="../../recipe/index/4">Desserts</a>
+                    <a href="../../recipe/index">Toutes les recettes</a>
+                </div>
+            </li>
+            <li class="navbar_link four"><a href="#">Articles<i class="fa fa-caret-down"></i></a>
+                <div class="dropdown_content">
+                    <a href="../../article/index/1">Produits fins</a>
+                    <a href="../../article/index/2">Livres de recettes</a>
+                    <a href="../../article/index">Tous les produits</a>
+                </div>
+            </li>
+            <li class="navbar_link fifth"><a href="../../contact/index">Contact</a></li>
+            <li class="navbar_link sixth">
+                <?php if(isset( $_SESSION['user_is_connected']) &&  $_SESSION['user_is_connected'] === true) {?> <a
+                    href="/user/disconnect">Deconnexion</a>
+                <?php
+                        } else { ?>
+                <a href="/user/connexion">Connexion</a>
+                <?php } ?>
+            </li>
+            <li class="navbar_link seventh"><a href="/user/add">S'inscrire</a></li>
+        </ul>
+        <button class="burger">
+            <span class="bar"></span>
+        </button> <span class="menu">Menu</span>
+    </nav>

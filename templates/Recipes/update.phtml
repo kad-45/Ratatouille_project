@@ -1,0 +1,60 @@
+<h2>Modifier une recette</h2>
+<div>
+  <?php if(!empty($params['errors'])) var_dump($params['errors']);?> </div>
+<?php
+
+require_once '../templates/Recipes/template_part/add_form.phtml';
+
+     /* $params['form']->openForm('post', '', ['id' => 'recipeForm', 'enctype'=>'multipart/form-data']);
+      $params['form']->addSelect('category_id', $params['categories'], ['label' => 'Categorie']);
+
+      $params['form']->addInput('text', 'title',['label'=>'Titre','value' => $params['recipe']['title']]);
+
+      $params['form']->addInput('text', 'duration',['label'=>'Temps de preparation', 'value' => $params['recipe']['duration']]);
+
+      $params['form']->addTextarea('description', $params['recipe']['description'], ['label' => 'Description']);
+      //il faut ajoutes les ingredients et les etapes 
+      // boucle sur les ingredient et pour chaque ingredients trouvé il faut creer les 3 inpus
+      $params['form']->addHtml("<fieldset style ='margin-top: 5px;margin-bottom: 5px;'><legend>Liste des ingredients </legend>");
+
+      foreach($params['form']->datas['ingredients'] as $ingredient){
+        $params['form']->addHtml("<div class='' style='display: flex; align-items: center'>");
+          $params['form']->addInput('hidden', 'id_ingredient[]',['value' => $ingredient['id']]);
+
+
+          $params['form']->addInput('text', 'name_ingredient[]',['label' => 'Nom','value' => $ingredient['name_ingredient']]);
+
+        $params['form']->addInput('text', 'quantity_ingredient[]',['label' => 'Quantité', 'value' =>$ingredient['quantity_ingredient']]);
+
+
+        $params['form']->addInput('text', 'unity_ingredient[]', ['label' => 'Unité','value' => $ingredient['unity_ingredient']]);
+
+
+        $params['form']->addHtml("</div>");
+      }
+      $params['form']->addHtml("</fieldset>");
+      //Boucle sur les étapes pour chaque étape trouvée il faut créer les deux inputs.
+      $params['form']->addHtml("<fieldset ><legend>Les Etapes de préparation </legend>");
+      foreach($params['recipe']['steps'] as $step) {
+          $params['form']->addHtml("<div class='' style='display: flex; align-items: center'>");
+          $params['form']->addInput('hidden', 'id_step[]',['value' => $step['id']]);
+
+          $params['form']->addInput('text', 'order_step[]',['label' => 'Etape N°','value' => $step['order_step']]);
+
+          $params['form']->addTextarea('description_step[]',$step['description_step'], ['label'=> 'Description']);
+
+
+          $params['form']->addHtml("</div>");
+
+      }
+      $params['form']->addHtml("</fieldset>");
+
+      $params['form']->addInput('file', 'file_path_img', ['label' =>'Image']);
+
+      $params['form']->addButton('Modifier', ['type' => 'submit', 'class' => 'btn', 'style'=>'margin-top:5px;']);
+
+      $params['form']->closeForm();
+
+ echo $params['form']->create();*/
+ 
+?>

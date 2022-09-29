@@ -1,0 +1,263 @@
+/*Les deux bouttons de modal*/
+.btn_cancel {
+  float: left;
+  width: 50%;
+  height: 50px;
+  margin-top: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  
+}
+
+.btn_delete {
+  float: right;
+  width: 50%;
+  height: 50px;
+  margin-top: 5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.container_modal {
+  text-align: center;
+}
+
+.container_modal > h3 {
+  margin-top: 1rem;
+}
+
+.container_modal > h1 {
+  margin-top: 2rem;
+
+}
+
+
+.btn_cancel {
+  background-color: #ccc;
+  color: black;
+}
+
+.btn_delete {
+  background-color: #f44336;
+}
+
+/*Le modal-------*/
+/* The Modal (background) */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 25%;
+  top: 5rem;
+  width: 40%;
+  overflow: auto; 
+  background-color: #a3a8b2;
+  padding-top: 50px;
+}
+
+/*Modal content (form)*/
+.modal_content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+/*Le boutton de férmeture de modal*/
+.close_modal {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #070606;
+}
+
+.close_modal:hover, .close_modal:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/*Modal footer recipe*/
+.footer::after {
+  content: '';
+  clear: both;
+  display: table;
+
+}
+
+/*Le modal pour modifier les ingredients et les étapes------------*/
+
+.modal_ingredient, .modal_step {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 25%;
+  top: 5rem;
+  width: 50%;
+  overflow: auto; 
+  background-color: #a3a8b2;
+  padding-top: 50px;
+}
+
+.modal_ingredient {
+  height: 550px; 
+}
+
+.modal_step {
+  height: 450px; 
+}
+
+.close_modal_ingredient, .close_modal_step, .close_modal_ingredient_delete, .close_modal_step_delete {
+  position: absolute;
+  right: 15px;
+  top: 1px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #070606;
+}
+
+.close_modal_ingredient:hover, .close_modal_ingredient:focus, 
+.close_modal_step:hover, .close_modal_step:focus,
+.close_modal_ingredient_delete:hover, .close_modal_ingredient_delete:focus
+.close_modal_step_delete:hover, .close_modal_step_delete:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+.container_modal_ingredient, .container_modal_step {
+  padding: 16px;
+  text-align: center;
+  height: 60px;
+}
+.container_modal_ingredient > h3, .container_modal_step > h3 {
+  text-align: center;
+}
+
+.btn_cancel_ingredient, .btn_cancel_step, .btn_cancel_ingredient_delete, .btn_cancel_step_delete  {
+  float: left;
+  width: 50%;
+  height: 50px;
+  margin-top: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn_update, .btn_delete {
+  float: right;
+  width: 50%;
+  height: 50px;
+  margin-top: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn_cancel_ingredient, .btn_cancel_step, .btn_cancel_ingredient_delete, .btn_cancel_step_delete {
+  background-color: #ccc;
+  color: black;
+}
+
+.btn_update {
+  background-color: rgb(9, 151, 9);
+}
+
+/*button modifier-----*/
+.fa-pen-to-square, .fa-trash-can {
+  font-size: 22px;
+}
+
+.btn_update_ingredient {
+  margin-right: 1.5rem
+}
+
+.btn_delete_ingredient {
+  margin-left: 1.5rem;
+}
+
+.btn_update_ingredient:hover, .btn_update_ingredient:focus, .btn_update_step:hover, .btn_update_step:focus {
+  background-color: #048a14;
+  cursor: pointer;
+}
+
+.btn_delete_ingredient:hover, .btn_delete_ingredient:focus, .btn_delete_step:hover, .btn_delete_step:focus {
+  background-color: #e30401;
+  cursor: pointer;
+}
+
+.footer_ingredient {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 3rem;
+
+}
+
+/*Le modal pour supprimer les ingrédients et les étapes-----------------------------------------*/
+.modal_ingredient_delete, .modal_step_delete {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 25%;
+  top: 5rem;
+  width: 40%;
+  height: 45%; 
+  overflow: auto; 
+  background-color:  #a3a8b2;
+}
+
+.container_modal_delete {
+  text-align: center;
+  height: 150px;
+ }
+
+ .container_modal_delete > h3 {
+  margin-top: 1rem;
+}
+
+.container_modal_delete > h2 {
+  margin-top: 2rem;
+
+}
+
+/*-----Responsive----*/
+@media screen and (min-width:601px) and (max-width:820px) {
+  .modal {
+    left: 20%;
+    top: -1rem;
+    width: 60%;
+  }
+
+  .container_modal > h1 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    display: block;
+    font-size: var(--font-size-body);
+    margin-top: 2rem;
+    /*margin-left: 1rem;*/
+    padding: 0;
+    height: 80px;
+    color: var(--footer-color);
+    background: var(--footer-bg-color);
+
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .btn_cancel, .btn_delete {
+    width: 100%;
+  }
+ 
+  .footer_step {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 3rem;
+
+  }
+}
+
+
