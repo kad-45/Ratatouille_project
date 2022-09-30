@@ -268,11 +268,24 @@
     text-align: center;
     margin: 15px;
   }
+  .maps {
+    margin-left: 4%;
+    margin-bottom: 80%;
+  }
+  
 }
 
 @media screen and (min-width:601px) and (max-width:820px) {
+  .wrapper {
+    width: 90%;
+    padding: 0px 10px;
+    margin: auto;
+    border-radius: 5px;
+  }
+
   .form-contact .message {
     width: 95%;
+
   }
 
   .phone, .email, .address {
@@ -285,9 +298,10 @@
 
   .maps {
     margin-left: 7%;
+    margin-bottom: 20%;
   }
 
-  form label {
+  .field label {
     font-size: 1rem;
   }
 

@@ -1,3 +1,5 @@
+
+/*---------------CSS de tous les modales---------------------*/
 /*Les deux bouttons de modal*/
 .btn_cancel {
   float: left;
@@ -5,8 +7,7 @@
   height: 50px;
   margin-top: 2rem;
   font-size: 1rem;
-  cursor: pointer;
-  
+  cursor: pointer; 
 }
 
 .btn_delete {
@@ -18,7 +19,6 @@
   cursor: pointer;
 }
 
-
 .container_modal {
   text-align: center;
 }
@@ -29,9 +29,7 @@
 
 .container_modal > h1 {
   margin-top: 2rem;
-
 }
-
 
 .btn_cancel {
   background-color: #ccc;
@@ -43,7 +41,7 @@
 }
 
 /*Le modal-------*/
-/* The Modal (background) */
+/* Le Modal (background) */
 .modal {
   display: none; 
   position: fixed; 
@@ -162,7 +160,6 @@
   background-color: rgb(9, 151, 9);
 }
 
-/*button modifier-----*/
 .fa-pen-to-square, .fa-trash-can {
   font-size: 22px;
 }
@@ -193,7 +190,7 @@
 
 }
 
-/*Le modal pour supprimer les ingrédients et les étapes-----------------------------------------*/
+/*-----Le modal pour supprimer les ingrédients et les étapes------*/
 .modal_ingredient_delete, .modal_step_delete {
   display: none; 
   position: fixed; 
@@ -217,10 +214,9 @@
 
 .container_modal_delete > h2 {
   margin-top: 2rem;
-
 }
 
-/*-----Responsive----*/
+/*------------------------------------------Responsive-------------------*/
 @media screen and (min-width:601px) and (max-width:820px) {
   .modal {
     left: 20%;
@@ -233,17 +229,6 @@
     font-size: 1.1rem;
   }
 
-  .footer {
-    display: block;
-    font-size: var(--font-size-body);
-    margin-top: 2rem;
-    /*margin-left: 1rem;*/
-    padding: 0;
-    height: 80px;
-    color: var(--footer-color);
-    background: var(--footer-bg-color);
-
-  }
 }
 
 @media screen and (max-width: 500px) {
