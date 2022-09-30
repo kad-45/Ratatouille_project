@@ -341,8 +341,8 @@ form .field .input
 
 @media screen and (min-width:821px) {
   .wrapper form {
-    transform: translate(10%,-200px);
     margin: 0 auto;
+    margin-bottom: 25%;
   }
 
   .wrapper {
