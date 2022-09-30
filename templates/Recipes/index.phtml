@@ -1,0 +1,65 @@
+<?php
+use App\Classes\Core\Service;
+
+
+if ( !empty($params['successMsg'])) {
+echo "<div class='successMsg'>{$params['successMsg']}</div>";
+}
+?>
+<?php  if (Service:: ifUserIsConnected()):?>
+<a href="/recipe/add" type="submit" class="btn-add-recipe">
+    Créer une recette
+</a>
+<?php endif ?>
+<div class="container">
+    <?php if(!empty($params['recipes'])) :  ?>
+
+    <h1>Liste des
+        <?= $params['libelle']?> <i class="sup">
+            <sup>
+                <?=count($params['recipes'])?></sup>
+        </i>
+
+    </h1>
+    <div class="cards">
+        <?php foreach($params['recipes'] as $recipe):?>
+
+        <article class="card">
+            <img src="<?='../..'. $recipe['file_path_img'] ?>" alt="Image de recette-<?= $recipe['title'] ?>">
+            <div class="card-content">
+                <div class="paragraph">
+                    <h2><?= $recipe['title'] ?></h2>
+                    <p><?= substr($recipe['description'], 0, 200). '....' ?></p>
+                    <p><?= 'Créer le : ' . $recipe['created_at'] ?></p>
+                </div>
+                <div class="container_links">
+                    <?php  if ((Service::ifUserIsConnected() && $recipe['user_id'] === $_SESSION['user_id'])  || (isset($_SESSION['role']) && $_SESSION['role'] === ROLE_ADMIN)):?>
+                    <div class="link_edit">
+                        <a type="button" href="/recipe/update/<?php echo $recipe['id']; ?>">Modifier</a>
+                    </div>
+                    <div class="link_delet">
+                        <a type="button" id="myBtn" model="recipe" class="recipe_deleted"
+                            data-recipe_id="<?= $recipe['id'] ?>">
+                            Supprimer
+                        </a>
+                    </div>
+                    <?php endif ?>
+                    <div class="link_learn">
+                        <a type="button" href="/recipe/show/<?php echo $recipe['id']; ?>">
+                            Lire plus
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </article>
+        <?php endforeach ?>
+    </div>
+    <?php else : ?>
+    <div> Aucune recette </div>
+    <?php endif ?>
+
+</div>
+<?php require_once dirname(__DIR__)."/Recipes/template_part/deleted_modale.phtml";?>
+<?php require_once '../templates/template_part/_footer.phtml';?>
+<script src="../../assets/js/home/modal.js"></script>

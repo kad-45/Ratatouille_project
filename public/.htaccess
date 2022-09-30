@@ -1,0 +1,11 @@
+RewriteEngine On
+# http:\\gastronomiblog.com/uri ===> http:\\gastronomiblog.com?param=uri
+# uri : controller/action/{id}/
+# ex : gastronomiblog.com/recipe/delete/2 ====> gastronomiblog.com?param=recipe/delete/2
+## dans la classe Router = $params = explode('/' $_GET['param']);
+## $params = ['recipe', 'add', '2']
+## $controllerClass = array_shift($params);
+##$params = ['add']
+### $action = array_shift($params);
+# $params = ['2'] ceci sera envoyer comme parametre à la methode $action
+RewriteRule ^([a-zA-Z0-9\-\_\/]*)$ index.php?param=$1

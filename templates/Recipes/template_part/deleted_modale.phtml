@@ -1,0 +1,23 @@
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <span class="close_modal">&times;</span>
+    <form method="POST" action="/recipe/delete" class="modal_content" enctype="multipart/form-data">
+        <div class=" container_modal">
+            <h1>Supprimer une recette</h1>
+            <h3>Etes vous sûr de supprimer cette recette?</h3>
+            <div class="footer">
+
+                <!-- Les éléments input de type "hidden" permettent aux développeurs web d'inclure des données qui ne peuvent 
+                          pas être vues ou modifiées lorsque le formulaire est envoyé.Sa valeur est envoyée au serveur.-->
+
+                <!-- un input:hidden stockant la page name= "recipe" value = "recipe_deleted" -->
+                <!-- <input type="hidden" name="" value=""> -->
+                <!-- Un input : hidden ciblan l'id de la recette à supprimer  -->
+                <input type="hidden" id="recipe_deleted_id" name="recipe_id" value="">
+                <!-- Un input:hidden permattant de supprimer la recette ciblé par son id -->
+                <button type="button" class="btn_cancel"> Fermer</button>
+                <button type="submit" class="btn_delete">Supprimer</button>
+            </div>
+        </div>
+    </form>
+</div>
