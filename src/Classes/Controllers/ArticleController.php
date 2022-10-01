@@ -11,7 +11,10 @@ use Exception;
 
 class ArticleController extends AbstractController{
 
-   
+  /**
+   * @param mixed $id
+   * @return string
+  */
     public function index($id = NULL)
     {
       $_SESSION['categoryArticle'] = $id;
@@ -39,7 +42,9 @@ class ArticleController extends AbstractController{
     }
 
      
-
+    /**
+     * @return string
+    */
     public function add()
     {
 
@@ -98,7 +103,10 @@ class ArticleController extends AbstractController{
 
     }
 
-
+   /**  
+    * @param mixed $id
+    * @return string
+   */
     public  function show($id)
     {
       $article = [];
@@ -126,6 +134,10 @@ class ArticleController extends AbstractController{
       ]);
     }
 
+    /**
+     * @param mixed $id
+     * @return string
+     */
     public function update($id)
     {
       
@@ -200,7 +212,9 @@ class ArticleController extends AbstractController{
       }
     }
   
-
+    /**
+     * @return string
+     */
     public function delete()
     {
 

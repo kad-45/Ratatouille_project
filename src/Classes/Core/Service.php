@@ -1,6 +1,6 @@
 <?php
 namespace App\Classes\Core;
-require_once '../config/config.php';
+/*require_once '../config/config.php';*/
 
 use App\Classes\Repositories\UserRepository;
 use DateTimeImmutable;
@@ -43,11 +43,8 @@ class Service {
     }
 
    /**@param array $tab
-
     *@param string $name
-
     *@param string $action
-
     *@return array
     */
    

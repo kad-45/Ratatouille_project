@@ -10,13 +10,15 @@ use App\Classes\Core\Service;
 use App\Classes\Entities\Ingredient;
 use App\Classes\Repositories\CategoryRepository;
 use App\Classes\Repositories\StepRepository;
-use App\Classes\Core\Form;
 use DateTimeImmutable;
 use Exception;
 
 class RecipeController extends AbstractController {
     
-  
+ /**
+  *@param mixed $id 
+  *@return string|void
+  */ 
   
   public function index($id = null) {
     $_SESSION['category'] = $id;
@@ -45,6 +47,9 @@ class RecipeController extends AbstractController {
 
   }
 
+  /**
+   * @return string
+   */
   public function add() 
   {
 
@@ -79,8 +84,6 @@ class RecipeController extends AbstractController {
 
           if(!$isFormvalid || !$isFileValid){
               $message = 'Veuillez corriger les erreurs suivantes:';
-              //var_dump($_POST);
-              //var_dump(array_merge($formValid->getErrors(), $fileValid->getErrors())); die();
               return $this->renderView("../../templates/Recipes/add.phtml", [], [
                   "errors" => array_merge($formValid->getErrors(), $fileValid->getErrors()),
                   "message" => $message,
@@ -133,7 +136,10 @@ class RecipeController extends AbstractController {
 
   }
 
-
+  /**
+   *@param mixed $id
+   *@return string
+  */
   public function show($id)
   {
     
@@ -157,10 +163,13 @@ class RecipeController extends AbstractController {
         
     } 
     return $this->renderView('../../templates/Recipes/show.phtml', [], ['recipe' => $recipe]);
-        
-          
-  
+    
   }
+
+  /**  
+   *@param mixed $id
+   *@return string
+  */
 
   public function update($id = null)
   {
@@ -193,15 +202,14 @@ class RecipeController extends AbstractController {
       $recipe['ingredients'] = $ingredientRepository->findBy(['recipe_id' => $id]);
 
       $recipe['steps'] = $stepRepository->findBy(['recipe_id' => $id]);
-      $recipeForm =  new Form($recipe, []);
 
 
       if($_SERVER['REQUEST_METHOD'] === 'GET')
       {
         
-        //creation du formulaire pre-rempli,pour mettre à jour ou modifier de  la recette     
+        //creation du formulaire pre-rempli,pour modifier ou mettre à jour la recette     
         return $this->renderView('../../templates/Recipes/template_part/add_form.phtml', [],
-        ['form' =>$recipeForm, 'recipe' => $recipe, 'categories' => $categories]);
+        ['recipe' => $recipe, 'categories' => $categories]);
 
         
       } else {
@@ -232,11 +240,9 @@ class RecipeController extends AbstractController {
                 if(!empty($errors)){
                     $message = 'Veuillez corriger les erreurs suivantes:';
                     
-              //Ancien chemin de template : Method object form: ../../templates/Recipes/update.phtml
                     return $this->renderView("../../templates/Recipes/template_part/add_form.phtml", [], [
                         "errors" => $errors,
                         "message" => $message,
-                        //'form' =>$recipeForm,
                         'recipe' => $recipe,
                         'categories' => $categories
                     ]);
@@ -285,6 +291,10 @@ class RecipeController extends AbstractController {
       }
 
   }
+
+   /**
+     * @return string|void
+    */
 
   public function delete()
   {

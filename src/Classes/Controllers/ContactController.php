@@ -5,6 +5,9 @@ use App\Classes\Core\Validation;
 
 class ContactController extends AbstractController {
 
+  /**
+   * @return string|void
+   */
   public function index()
   {
         if($_SERVER['REQUEST_METHOD'] === 'GET') {

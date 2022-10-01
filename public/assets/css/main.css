@@ -134,6 +134,7 @@ ul {
   width: 80%;
   margin: auto;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .diapo {
@@ -287,6 +288,11 @@ ul {
   padding:1.5rem;
 }
 
+.container h1 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
 .btn-add-recipe {
   text-decoration: none;
   font-size: 18px;
@@ -298,7 +304,11 @@ ul {
   padding: 13px 25px;
   position: relative;
   float: right;
-  margin-right: 3rem;
+  margin: 1rem 3rem 0.4rem auto;
+}
+
+.btn-add-recipe:hover {
+  background-color: #c8892a;
 }
 
 /*Cards*/
@@ -322,6 +332,10 @@ ul {
 
 .paragraph {
   height: 260px;
+}
+
+.paragraph h2 {
+  font-size: 1rem;
 }
 
 /*container_links*/
@@ -964,6 +978,7 @@ form .message textarea {
   max-width: 300px;
   padding: 8px 15px 0 48px;
   margin-bottom: 2rem;
+  font-size: 1rem;
 }
 
 form .button-area {
@@ -1096,6 +1111,7 @@ tr:nth-child  {
 
 tr td {
   padding: 6px;
+  font-size: 1rem;
 }
 
 td a {

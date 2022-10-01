@@ -16,6 +16,9 @@ class UserController extends AbstractController {
    $this->renderView('../../templates/Users/index.phtml', [], ['users' =>$users]);
   }
   
+  /**
+   * @return string
+   */
   public function add() {
     $role = 'user';
     $error = null;
@@ -76,6 +79,10 @@ class UserController extends AbstractController {
     
   }
   
+  /**
+   * @param mixed $id
+   * @return string
+   */
   public function update($id)
   {
     
@@ -132,6 +139,9 @@ class UserController extends AbstractController {
     }
   } 
 
+  /**
+   * @return string
+   */
   public function delete()
   {
     $message = NULL;
@@ -210,10 +220,7 @@ class UserController extends AbstractController {
 
      public function disconnect()
      {
-            //unset($_SESSION);
-     // var_dump($_SESSION);
       unset($_SESSION['user_is_connected']);
-     // var_dump($_SESSION);
        header('Location: /home/index');
      }
 }

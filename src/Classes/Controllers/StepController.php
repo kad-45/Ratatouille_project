@@ -48,9 +48,7 @@ class StepController extends AbstractController {
             return $this->renderView('../../templates/Recipes/show.phtml', [], [
             'recipe' => $recipe,
             'message' => $msg
-            ]);
-
-            
+            ]);            
         }
     }
 
@@ -86,10 +84,5 @@ class StepController extends AbstractController {
         
     }
 }
-
-
-
-
-
 
 ?>

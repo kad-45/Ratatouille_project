@@ -132,7 +132,7 @@ class AbstractRepository extends Dbase
 
         // On vérifie s'il y a des attributs
         if(!is_null($attributs)){
-            //requete sql preparée
+            //requette sql preparée
             $query = $this->db->prepare($sql);
             $query->execute($attributs);
             if (preg_match("/^INSERT\s/i", $sql, $matches)) {
