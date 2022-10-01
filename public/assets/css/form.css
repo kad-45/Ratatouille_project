@@ -13,7 +13,6 @@
 
 }
 
-
 /*Reset*/
 * {
   box-sizing: border-box;
@@ -31,7 +30,6 @@
   align-items: center;
   justify-content: center;
   margin-left: 10%;
-
 }
 
 .wrapper header {

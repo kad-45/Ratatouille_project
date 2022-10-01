@@ -1,98 +1,70 @@
+<!-- ----Formulaire d'inscription --------->
 <div class="wrapper">
-    <form method="POST" action="/user/add">
-        <div class="dbl-field">
-            <div class="field">
-                <label for="name">Prenom :</label>
-                <input type="text" id="name" name="firstname" placeholder="Entrez votre prenom"
-                    value="<?= (!empty($params['parametrs']['firstname']))? $params['parametrs']['firstname']:''?>">
-                <i class="fas fa-user"></i>
-                <?php if (!empty($params['errors']['firstname'])): ?>
-                <span class="errors">
-                    <?= $params['errors']['firstname']?>
-                </span>
-                <?php endif ?>
-            </div>
-            <div class="field">
-                <label for="name">Nom :</label><span class="required">*</span>
-                <input type="text" name="lastname" placeholder="Entrez votre nom"
-                    value="<?= (!empty($params['parametrs']['lastname']))? $params['parametrs']['lastname']:''?>">
-                <i class="fas fa-user"></i>
-                <?php if (!empty($params['errors']['lastname'])): ?>
-                <span class="errors">
-                    <?= $params['errors']['lastname']?>
-                </span>
-                <?php endif ?>
-            </div>
-        </div>
-        <div class="dbl-field">
-            <div class="field">
-                <label for="name">Email :</label><span class="required">*</span>
-                <input type="text" id="email" name="email" placeholder="Entrez votre email"
-                    value="<?= (!empty($params['parametrs']['email']))? $params['parametrs']['email']:''?>">
-                <i class="fa-solid fa-envelope"></i>
-                <?php if (!empty($params['errors']['email'])): ?>
-                <span class="errors">
-                    <?= $params['errors']['email']?>
-                </span>
-                <?php endif ?>
-            </div>
-            <div class="field">
-                <label for="name">Confirmez votre email :</label><span class="required">*</span>
-                <input type="text" onBlur="confirmed(this)" id="confirmed_email" name="confirmed_email"
-                    placeholder="confirmez votre email"> <i class="fa-solid fa-envelope"></i>
-            </div>
-        </div>
-        <div class="dbl-field">
-            <div class="field">
-                <label for="name">Mot de passe :</label><span class="required">*</span>
-                <input type="password" id="password" name="password" placeholder="Votre mot de passe"
-                    value="<?= (!empty($params['parametrs']['password']))? $params['parametrs']['password']:''?>">
-                <i class="fa-solid fa-key"></i>
-                <?php if (!empty($params['errors']['password'])): ?>
-                <span class="errors">
-                    <?= $params['errors']['password']?>
-                </span>
-                <?php endif ?>
-            </div>
-            <div class="field">
-                <label for="name">Confirmez MP:</label><span class="required">*</span>
-                <input type="password" onBlur="confirmed(this)" id="confirmed_password" name="confirmed_password"
-                    placeholder="Confirmez le mot de passe"> <i class="fa-solid fa-key"></i>
-            </div>
-        </div>
-        <div class="button-area">
-            <button type="submit">S'enregistrez</button>
-        </div>
-    </form>
+  <form method="POST" action="/user/add">
+    <div class="dbl-field">
+      <div class="field">
+        <label for="name">Prenom :</label>
+        <input type="text" id="name" name="firstname" placeholder="Entrez votre prenom"
+          value="<?= (!empty($params['parametrs']['firstname']))? $params['parametrs']['firstname']:''?>">
+        <i class="fas fa-user"></i>
+        <?php if (!empty($params['errors']['firstname'])): ?>
+        <span class="errors">
+          <?= $params['errors']['firstname']?>
+        </span>
+        <?php endif ?>
+      </div>
+      <div class="field">
+        <label for="name">Nom :</label><span class="required">*</span>
+        <input type="text" name="lastname" placeholder="Entrez votre nom"
+          value="<?= (!empty($params['parametrs']['lastname']))? $params['parametrs']['lastname']:''?>">
+        <i class="fas fa-user"></i>
+        <?php if (!empty($params['errors']['lastname'])): ?>
+        <span class="errors">
+          <?= $params['errors']['lastname']?>
+        </span>
+        <?php endif ?>
+      </div>
+    </div>
+    <div class="dbl-field">
+      <div class="field">
+        <label for="name">Email :</label><span class="required">*</span>
+        <input type="text" id="email" name="email" placeholder="Entrez votre email"
+          value="<?= (!empty($params['parametrs']['email']))? $params['parametrs']['email']:''?>">
+        <i class="fa-solid fa-envelope"></i>
+        <?php if (!empty($params['errors']['email'])): ?>
+        <span class="errors">
+          <?= $params['errors']['email']?>
+        </span>
+        <?php endif ?>
+      </div>
+      <div class="field">
+        <label for="name">Confirmez votre email :</label><span class="required">*</span>
+        <input type="text" onBlur="confirmed(this)" id="confirmed_email" name="confirmed_email"
+          placeholder="confirmez votre email"> <i class="fa-solid fa-envelope"></i>
+      </div>
+    </div>
+    <div class="dbl-field">
+      <div class="field">
+        <label for="name">Mot de passe :</label><span class="required">*</span>
+        <input type="password" id="password" name="password" placeholder="Votre mot de passe"
+          value="<?= (!empty($params['parametrs']['password']))? $params['parametrs']['password']:''?>">
+        <i class="fa-solid fa-key"></i>
+        <?php if (!empty($params['errors']['password'])): ?>
+        <span class="errors">
+          <?= $params['errors']['password']?>
+        </span>
+        <?php endif ?>
+      </div>
+      <div class="field">
+        <label for="name">Confirmez MP:</label><span class="required">*</span>
+        <input type="password" onBlur="confirmed(this)" id="confirmed_password" name="confirmed_password"
+          placeholder="Confirmez le mot de passe"> <i class="fa-solid fa-key"></i>
+      </div>
+    </div>
+    <div class="button-area">
+      <button type="submit">S'enregistrez</button>
+    </div>
+  </form>
 </div>
-
-
-
 <?php require_once '../templates/template_part/_footer.phtml';?>
-<script>
-/*1er méthode*/
-/*document.querySelector('#confirmed_email').addEventListener('blur', (event) => {
-    let email = document.querySelector('#email').value;
-    if (this.value !== email) {
-        event.target.style.border = '1px solid red';
-        document.querySelector('#email').style.border = '1px solid red';
-    }
-});*/
-
-function confirmed(elem) {
-    let elmTabConfirmed = elem.name.split('_');
-    let selectorElem = '#' + elem.id;
-
-    console.log(elmTabConfirmed);
-    let selector = '#' + elmTabConfirmed[1];
-    console.log(selector);
-
-    let elementVal = document.querySelector(selector).value
-    if (elem.value !== elementVal) {
-
-        document.querySelector(selector).style.border = '1px solid red';
-        document.querySelector(selectorElem).style.border = '1px solid red';
-
-    }
-}
-</script>
+<script src="../../assets/js/user/add.js"></script>

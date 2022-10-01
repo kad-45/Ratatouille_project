@@ -1,347 +1,177 @@
     <?php
     use App\Classes\Core\Service;
-    require_once "../templates/template_part/_navbar.phtml";
+   /* require_once "../templates/template_part/_navbar.phtml";*/
     ?>
     <?php if (!empty($params['message'])): ?>
     <div>
-        <?= $params['message']?>
+      <?= $params['message']?>
     </div>
     <?php endif ?>
     <div class="container">
-        <?php if(!empty($params['recipe'])): ?>
-        <h1>
-            <?= $params['recipe']['title']?></h1>
-        <article class="card">
-            <img src="<?='../../'. $params['recipe']['file_path_img'] ?>"
-                alt="Image de recette-<?= $params['recipe']['title'] ?>">
-            <div class="card-content">
-                <p><?= $params['recipe']['description']; ?>
-                </p>
-                <h3>Liste des ingrédients</h3>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Quantité</th>
-                                <th>Unité</th>
-                                <?php if (Service:: ifUserIsConnected()):?>
-                                <th>Action</th>
-                                <?php endif ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach($params['recipe']['ingredients'] as $ingredient):?>
-                            <tr id="<?=$ingredient['id'];?>">
-                                <td><?= $ingredient['name_ingredient']; ?></td>
-                                <td><?= $ingredient['quantity_ingredient']; ?></td>
-                                <td><?= $ingredient['unity_ingredient']; ?></td>
-                                <?php  if (Service:: ifUserIsConnected()):?>
-                                <td>
-                                    <button class="btn_update_ingredient" id="btn_update_ingredient" type=" button"><i
-                                            class="fa-solid fa-pen-to-square"></i></button>
-                                    <button class="btn_delete_ingredient" id="btn_delete_ingredient" type="button"><i
-                                            class="fa-solid fa-trash-can"></i></button>
-                                </td>
-                                <?php endif ?>
-                            </tr>
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card-content">
-                <h3>Les Etapes</h3>
-                <div class=" table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Etape N°</th>
-                                <th>Description</th>
-                                <?php  if (Service:: ifUserIsConnected()):?>
-                                <th>Action</th>
-                                <?php endif ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach($params['recipe']['steps'] as $step):?>
-                            <tr id="<?=$step['id'];?>">
-                                <td><?= $step['order_step']; ?></td>
-                                <td><?= $step['description_step']; ?></td>
-                                <?php  if (Service:: ifUserIsConnected()):?>
-                                <td>
-                                    <button class="btn_update_step" id="btn_update_step" type=" button"><i
-                                            class="fa-solid fa-pen-to-square"></i></button>
-                                    <button class="btn_delete_step" id=" btn_delete_step" type="button"><i
-                                            class="fa-solid fa-trash-can"></i></button>
-                                </td>
-                                <?php endif ?>
-                            </tr>
-                            <?php endforeach ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </article>
-        <?php endif ?>
+      <?php if(!empty($params['recipe'])): ?>
+      <h1>
+        <?= $params['recipe']['title']?></h1>
+      <article class="card">
+        <img src="<?='../../'. $params['recipe']['file_path_img'] ?>"
+          alt="Image de recette-<?= $params['recipe']['title'] ?>">
+        <div class="card-content">
+          <p><?= $params['recipe']['description']; ?>
+          </p>
+          <h3>Liste des ingrédients</h3>
+          <div class="table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Quantité</th>
+                  <th>Unité</th>
+                  <?php if (Service:: ifUserIsConnected()):?>
+                  <th>Action</th>
+                  <?php endif ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach($params['recipe']['ingredients'] as $ingredient):?>
+                <tr id="<?=$ingredient['id'];?>">
+                  <td><?= $ingredient['name_ingredient']; ?></td>
+                  <td><?= $ingredient['quantity_ingredient']; ?></td>
+                  <td><?= $ingredient['unity_ingredient']; ?></td>
+                  <?php  if (Service:: ifUserIsConnected()):?>
+                  <td>
+                    <button class="btn_update_ingredient" id="btn_update_ingredient" type=" button"><i
+                        class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn_delete_ingredient" id="btn_delete_ingredient" type="button"><i
+                        class="fa-solid fa-trash-can"></i></button>
+                  </td>
+                  <?php endif ?>
+                </tr>
+                <?php endforeach ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3>Les Etapes</h3>
+          <div class=" table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Etape N°</th>
+                  <th>Description</th>
+                  <?php  if (Service:: ifUserIsConnected()):?>
+                  <th>Action</th>
+                  <?php endif ?>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach($params['recipe']['steps'] as $step):?>
+                <tr id="<?=$step['id'];?>">
+                  <td><?= $step['order_step']; ?></td>
+                  <td><?= $step['description_step']; ?></td>
+                  <?php  if (Service:: ifUserIsConnected()):?>
+                  <td>
+                    <button class="btn_update_step" id="btn_update_step" type=" button"><i
+                        class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="btn_delete_step" id=" btn_delete_step" type="button"><i
+                        class="fa-solid fa-trash-can"></i></button>
+                  </td>
+                  <?php endif ?>
+                </tr>
+                <?php endforeach ?>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+      <?php endif ?>
     </div>
     <!----------------------------- Modal pour modifier un ingrédient--------------------->
     <div id="myModal" class="modal_ingredient">
-        <span class="close_modal_ingredient">&times;</span>
-        <form method="POST" action="/ingredient/update" class="modal_content_ingredient" enctype="multipart/form-data">
-            <div class="container_modal_ingredient">
-                <h3>Mise à jour de l'ingredient</h3>
-                <div class="footer_ingredient">
-                    <div>
-                        <label for="" class="">Nom</label>
-                        <input type="text" id="id_name_ingredient" name="name_ingredient" value="">
-                    </div>
-                    <div>
-                        <label for="" class="">Quantité</label>
-                        <input type="text" id="id_quantity_ingredient" name="quantity_ingredient" value="">
-                    </div>
-                    <div>
-                        <label for="" class="">Unité</label>
-                        <input type="text" id="id_unity_ingredient" name="unity_ingredient" value="">
-                    </div>
-                    <div class="modal_btn">
-                        <input type="hidden" style="width:120px ;" id="id_recipe" name="recipe_id"
-                            value="<?= $params['recipe']['id']; ?>">
-                        <input type="hidden" style="width:120px ;" id="id_ingredient" name="id" value="">
-                        <button type="button" class="btn_cancel_ingredient"> Fermer</button>
-                        <button type="submit" class="btn_update">Modifier</button>
-                    </div>
-                </div>
+      <span class="close_modal_ingredient">&times;</span>
+      <form method="POST" action="/ingredient/update" class="modal_content_ingredient" enctype="multipart/form-data">
+        <div class="container_modal_ingredient">
+          <h3>Mise à jour de l'ingredient</h3>
+          <div class="footer_ingredient">
+            <div>
+              <label for="" class="">Nom</label>
+              <input type="text" id="id_name_ingredient" name="name_ingredient" value="">
             </div>
-        </form>
+            <div>
+              <label for="" class="">Quantité</label>
+              <input type="text" id="id_quantity_ingredient" name="quantity_ingredient" value="">
+            </div>
+            <div>
+              <label for="" class="">Unité</label>
+              <input type="text" id="id_unity_ingredient" name="unity_ingredient" value="">
+            </div>
+            <div class="modal_btn">
+              <input type="hidden" style="width:120px ;" id="id_recipe" name="recipe_id"
+                value="<?= $params['recipe']['id']; ?>">
+              <input type="hidden" style="width:120px ;" id="id_ingredient" name="id" value="">
+              <button type="button" class="btn_cancel_ingredient"> Fermer</button>
+              <button type="submit" class="btn_update">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-    <!------------------------------ Modal pour supprimer un ingrédient--------------------->
+    <!-----------------------Modal pour supprimer un ingrédient--------------------->
     <div id="myModal" class="modal_ingredient_delete">
-        <span class="close_modal_ingredient_delete">&times;</span>
-        <form method="POST" action="/ingredient/delete" class="modal_content" enctype="multipart/form-data">
-            <div class="container_modal_delete">
-                <h2>Supprimer un ingrédient</h2>
-                <h3>Etes vous sûr de supprimer cet ingrédient?</h3>
-                <div class="footer_ingredient_delete">
-                    <input type="hidden" id="id_recipe" name="recipe_id" value="<?= $params['recipe']['id']; ?>">
-                    <input type="hidden" id="id_ingredient_delete" name="id" value="">
-                    <button type="button" class="btn_cancel_ingredient_delete"> Fermer</button>
-                    <button type="submit" class="btn_delete">Supprimer</button>
-                </div>
-            </div>
-        </form>
+      <span class="close_modal_ingredient_delete">&times;</span>
+      <form method="POST" action="/ingredient/delete" class="modal_content" enctype="multipart/form-data">
+        <div class="container_modal_delete">
+          <h2>Supprimer un ingrédient</h2>
+          <h3>Etes vous sûr de supprimer cet ingrédient?</h3>
+          <div class="footer_ingredient_delete">
+            <input type="hidden" id="id_recipe" name="recipe_id" value="<?= $params['recipe']['id']; ?>">
+            <input type="hidden" id="id_ingredient_delete" name="id" value="">
+            <button type="button" class="btn_cancel_ingredient_delete"> Fermer</button>
+            <button type="submit" class="btn_delete">Supprimer</button>
+          </div>
+        </div>
+      </form>
     </div>
-
-
     <!---------------------------------- Modal pour modifier une étape -------------------------------------->
     <div id="myModal" class="modal_step">
-        <span class="close_modal_step">&times;</span>
-        <form method="POST" action="/step/update" class="modal_content_step" enctype="multipart/form-data">
-            <div class="container_modal_step">
-                <h3>Mise à jour de l'étape</h3>
-                <div class="footer_step">
-                    <div>
-                        <label for="" class="">Etape N°</label>
-                        <input type="text" id="id_nbr_step" name="order_step" value="">
-                    </div>
-                    <div>
-                        <label for="" class="">Description</label>
-                        <input type="text" id="id_description_step" name="description_step" value="">
-                    </div>
-                    <div class="modal_btn">
-                        <input type="hidden" style="width:120px ;" id="id_recipe" name="recipe_id"
-                            value="<?= $params['recipe']['id']; ?>">
-                        <input type="hidden" style="width:120px ;" id="id_step" name="id" value="">
-                        <button type="button" class="btn_cancel_step"> Fermer</button>
-                        <button type="submit" class="btn_update">Modifier</button>
-                    </div>
-                </div>
+      <span class="close_modal_step">&times;</span>
+      <form method="POST" action="/step/update" class="modal_content_step" enctype="multipart/form-data">
+        <div class="container_modal_step">
+          <h3>Mise à jour de l'étape</h3>
+          <div class="footer_step">
+            <div>
+              <label for="" class="">Etape N°</label>
+              <input type="text" id="id_nbr_step" name="order_step" value="">
             </div>
-        </form>
+            <div>
+              <label for="" class="">Description</label>
+              <input type="text" id="id_description_step" name="description_step" value="">
+            </div>
+            <div class="modal_btn">
+              <input type="hidden" style="width:120px ;" id="id_recipe" name="recipe_id"
+                value="<?= $params['recipe']['id']; ?>">
+              <input type="hidden" style="width:120px ;" id="id_step" name="id" value="">
+              <button type="button" class="btn_cancel_step"> Fermer</button>
+              <button type="submit" class="btn_update">Modifier</button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-    <!-----------------------------------Modal pour supprimer une étape--------------------->
+    <!---------------------------Modal pour supprimer une étape--------------------->
     <div id="myModal" class="modal_step_delete">
-        <span class="close_modal_step_delete">&times;</span>
-        <form method="POST" action="/step/delete" class="modal_content" enctype="multipart/form-data">
-            <div class="container_modal_delete">
-                <h2>Supprimer une étape</h2>
-                <h3>Etes vous sûr de supprimer cette étape?</h3>
-                <div class="footer_step_delete">
-                    <input type="hidden" id="id_recipe" name="recipe_id" value="<?= $params['recipe']['id']; ?>">
-                    <input type="hidden" id="id_step_delete" name="id" value="">
-                    <button type="button" class="btn_cancel_step_delete"> Fermer</button>
-                    <button type="submit" class="btn_delete">Supprimer</button>
-                </div>
-            </div>
-        </form>
+      <span class="close_modal_step_delete">&times;</span>
+      <form method="POST" action="/step/delete" class="modal_content" enctype="multipart/form-data">
+        <div class="container_modal_delete">
+          <h2>Supprimer une étape</h2>
+          <h3>Etes vous sûr de supprimer cette étape?</h3>
+          <div class="footer_step_delete">
+            <input type="hidden" id="id_recipe" name="recipe_id" value="<?= $params['recipe']['id']; ?>">
+            <input type="hidden" id="id_step_delete" name="id" value="">
+            <button type="button" class="btn_cancel_step_delete"> Fermer</button>
+            <button type="submit" class="btn_delete">Supprimer</button>
+          </div>
+        </div>
+      </form>
     </div>
     <?php require_once '../templates/template_part/_footer.phtml' ;?>
-
-    <script>
-//--------------Obtenir le modal pour modifier un ingrédient-------------------------------------
-
-const modalIngredient = document.querySelector('.modal_ingredient');
-//Cibler le boutton qui ouvre le modal
-//Lorsque l'utilisateur clique sur le boutton modifier, le modal s'ouvre
-let myBtnUpdate = document.querySelectorAll('.btn_update_ingredient');
-myBtnUpdate.forEach(element => {
-    element.addEventListener('click', () => {
-
-        //alert(element.parentElement.parentElement.firstElementChild.textContent);
-        //on va cibler le champ type hidden qui contient le (name=id) pour stocker l'id de l'ingrédient qu'on va modifier.
-        document.getElementById('id_ingredient').value = element.parentElement.parentElement
-            .getAttribute('id');
-        document.querySelector('#id_name_ingredient').value = element.parentElement
-            .parentElement
-            .children[0].innerHTML;
-        document.querySelector('#id_quantity_ingredient').value = element.parentElement
-            .parentElement
-            .children[1].innerHTML;
-        document.querySelector('#id_unity_ingredient').value = element.parentElement
-            .parentElement
-            .children[2].innerHTML;
-        modalIngredient.style.display = 'block ';
-    })
-});
-
-//Obtenir le span qui ferme le modal
-const spanIngredient = document.getElementsByClassName("close_modal_ingredient")[0];
-
-//Lorsque l'utilisateur clique sur <span> (x), ferme le modal
-spanIngredient.addEventListener('click', () => {
-    modalIngredient.style.display = 'none';
-
-});
-
-//Lorsque l'utilisateur click sur le boutton fermer(btn_cancel)
-const cancelBtn = document.querySelector('.btn_cancel_ingredient');
-cancelBtn.addEventListener('click', () => {
-    console.log('totot!!!!');
-    modalIngredient.style.display = 'none';
-});
-
-//Lorsque l'utilisateur clique n'importe où en dehors du modal, ce dernier se ferme
-window.addEventListener('click', (event) => {
-    if (event.target == modalIngredient) {
-        modalIngredient.style.display = 'none';
-    }
-});
-
-//------------------Obtenir le modal pour supprimer un ingrédient-------------------------------------
-
-
-//Lorsque l'utilisateur clique sur le boutton supprimer, le modal s'ouvre
-//je dois cibler le champ type hidden qui contient le (name=id) pour stocker l'id de l'ingrédient qu'on va supprimer.
-const modalIngredientDelete = document.querySelector('.modal_ingredient_delete');
-let myBtnDelete = document.querySelectorAll('.btn_delete_ingredient');
-myBtnDelete.forEach(element => {
-    element.addEventListener('click', () => {
-        // alert(element.previousSibling.parentElement.parentElement
-        /// .getAttribute('id'));
-        document.querySelector('#id_ingredient_delete').value = element
-            .previousSibling
-            .parentElement
-            .parentElement
-            .getAttribute('id');
-        modalIngredientDelete.style.display = 'block';
-    });
-});
-
-//Lorsque l'utilisateur clique sur <span> (x), ferme le modal
-document.getElementsByClassName("close_modal_ingredient_delete")[0].addEventListener('click', () => {
-    modalIngredientDelete.style.display = 'none';
-
-});
-
-//Lorsque l'utilisateur click sur le boutton fermer(btn_cancel)
-document.querySelector('.btn_cancel_ingredient_delete').
-addEventListener('click', () => {
-    modalIngredientDelete.style.display = 'none';
-});
-
-window.addEventListener('click', (event) => {
-    if (event.target == modalIngredientDelete) {
-        modalIngredientDelete.style.display = 'none';
-    }
-});
-
-//------------------------Obtenir le modal pour modifier les étapes-----------------------
-
-const modalStep = document.querySelector('.modal_step');
-//Cibler le boutton qui ouvre le modal
-//Lorsque l'utilisateur clique sur le boutton modifier, le modal s'ouvre
-let myBtnStep = document.querySelectorAll('.btn_update_step');
-myBtnStep.forEach(element => {
-    // console.log('toto!!!!!!!!');
-
-    element.addEventListener('click', () => {
-        //console.log('toto!!!!!!!!');
-
-        //alert(element.parentElement.parentElement.firstElementChild.textContent);
-        //je dois cibler le champ type hidden qui contient le (name=id)
-        document.getElementById('id_step').value = element.parentElement.parentElement
-            .getAttribute('id');
-        //console.log('toto!!!!!!!!');
-        document.querySelector('#id_nbr_step').value = element.parentElement
-            .parentElement
-            .children[0].textContent;
-        document.querySelector('#id_description_step').value = element.parentElement
-            .parentElement
-            .children[1].textContent;
-        modalStep.style.display = 'block';
-
-    });
-});
-
-//Obtenir le span qui ferme le modal
-const spanStep = document.getElementsByClassName("close_modal_step")[0];
-
-//Lorsque l'utilisateur clique sur <span> (x), ferme le modal
-spanStep.addEventListener('click', () => {
-    modalStep.style.display = 'none';
-
-});
-
-//Lorsque l'utilisateur click sur le boutton fermer(btn_cancel)
-const cancelBtnStep = document.querySelector('.btn_cancel_step');
-cancelBtnStep.addEventListener('click',
-    () => {
-        modalStep.style.display = 'none';
-    });
-
-//Lorsque l'utilisateur clique en dehors du modal, ce dernier se ferme
-window.addEventListener('click', (event) => {
-    if (event.target == modalStep) {
-        modalStep.style.display = 'none';
-    }
-});
-//------------------Obtenir le modal pour supprimer une étape-----------
-
-//Lorsque l'utilisateur clique sur le boutton supprimer, le modal s'ouvre
-//je dois cibler le champ type hidden qui contient le (name=id) pour stocker l'id de l'étape qu 'on va supprimer.
-const modalStepDelete = document.querySelector('.modal_step_delete');
-let myBtnDeleteStep = document.querySelectorAll('.btn_delete_step');
-myBtnDeleteStep.forEach(element => {
-    element.addEventListener('click', () => {
-        alert(element.previousSibling.parentElement.parentElement.getAttribute('id'));
-        document.querySelector('#id_step_delete').value = element.previousSibling.parentElement
-            .parentElement.getAttribute('id');
-        modalStepDelete.style.display = 'block';
-    });
-});
-//Lorsque l'utilisateur clique sur <span> (x), le modal se ferme.
-document.getElementsByClassName('close_modal_step_delete')[0].addEventListener('click', () => {
-    modalStepDelete.style.display = 'none';
-});
-//Lorsque l'utilisateur click sur le boutton fermer(btn_cancel)
-document.querySelector('.btn_cancel_step_delete').addEventListener('click', () => {
-    modalStepDelete.style.display = 'none';
-
-});
-//Lorsque l'utilisateur clique en dehors du modal, ce dernier se ferme
-window.addEventListener('click', (event) => {
-    if (event.target == modalStepDelete) {
-        modalStepDelete.style.display = 'none';
-    }
-});
-    </script>
+    <script src="../../assets/js/recipe/show.js"></script>

@@ -1,65 +1,58 @@
 <?php
 use App\Classes\Core\Service;
 
-
 if ( !empty($params['successMsg'])) {
 echo "<div class='successMsg'>{$params['successMsg']}</div>";
-}
-?>
+}?>
 <?php  if (Service:: ifUserIsConnected()):?>
 <a href="/article/add" class="btn-add-recipe">
-    Créer un article
+  Créer un article
 </a>
 <?php endif ?>
 <div class="container">
-    <?php if(!empty($params['articles'])) :  ?>
-
-    <h1>Liste des
-        <?= $params['libelle']?>
-        <i class="sup">
-            <sup>
-                <?= count($params['articles']) ?>
-            </sup>
-        </i>
-    </h1>
-    <div class="cards">
-        <?php foreach($params['articles'] as $article):?>
-
-        <article class="card">
-            <img src="<?='../..'. $article['file_path_img'] ?>" alt="Image d'article-<?= $article['title'] ?>">
-            <div class="card-content">
-                <div class="paragraph">
-                    <h2><?= $article['title'] ?></h2>
-                    <p><?= substr($article['description'], 0, 150). '...' ?></p>
-                    <p><?= 'Créer le : ' . $article['date_published'] ?></p>
-                </div>
-                <div class="container_links">
-                    <?php  if (Service:: ifUserIsConnected()):?>
-                    <div class="link_edit">
-                        <a type="button" href="/article/update/<?php echo $article['id']; ?>">Modifier</a>
-                    </div>
-                    <div class="link_delet">
-                        <a type="button" id="myBtn" model="recipe" class=" recipe_deleted"
-                            data-recipe_id="<?= $article['id'] ?>">
-                            Supprimer
-                        </a>
-                    </div>
-                    <?php endif ?>
-                    <div class="link_learn">
-                        <a type="button" href="/article/show/<?php echo $article['id']; ?>">
-                            Lire plus
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-        </article>
-        <?php endforeach ?>
-    </div>
-    <?php else : ?>
-    <div> Aucun article </div>
-    <?php endif ?>
-
+  <?php if(!empty($params['articles'])) :  ?>
+  <h1>Liste des
+    <?= $params['libelle']?>
+    <i class="sup">
+      <sup>
+        <?= count($params['articles']) ?>
+      </sup>
+    </i>
+  </h1>
+  <div class="cards">
+    <?php foreach($params['articles'] as $article):?>
+    <article class="card">
+      <img src="<?='../..'. $article['file_path_img'] ?>" alt="Image d'article-<?= $article['title'] ?>">
+      <div class="card-content">
+        <div class="paragraph">
+          <h2><?= $article['title'] ?></h2>
+          <p><?= substr($article['description'], 0, 150). '...' ?></p>
+          <p><?= 'Créer le : ' . $article['date_published'] ?></p>
+        </div>
+        <div class="container_links">
+          <?php  if (Service:: ifUserIsConnected()):?>
+          <div class="link_edit">
+            <a type="button" href="/article/update/<?php echo $article['id']; ?>">Modifier</a>
+          </div>
+          <div class="link_delet">
+            <a type="button" id="myBtn" model="recipe" class=" recipe_deleted" data-recipe_id="<?= $article['id'] ?>">
+              Supprimer
+            </a>
+          </div>
+          <?php endif ?>
+          <div class="link_learn">
+            <a type="button" href="/article/show/<?php echo $article['id']; ?>">
+              Lire plus
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+    <?php endforeach ?>
+  </div>
+  <?php else : ?>
+  <div> Aucun article </div>
+  <?php endif ?>
 </div>
 <?php require_once dirname(__DIR__)."/Articles/article_delete.phtml";?>
 <?php require_once '../templates/template_part/_footer.phtml';?>

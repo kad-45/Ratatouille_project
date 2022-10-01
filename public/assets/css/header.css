@@ -1,4 +1,4 @@
-/*------------------------------------header navbar---------------------------------*/
+/*----------header navbar-----------------------*/
 
 /*Fonts*/
 
@@ -118,7 +118,7 @@ ul {
   display: block;
 }
 
-/*-------------------------------Responsive pour la navbar------------------------*/
+/*-----------Responsive pour la navbar------------------------*/
 @media screen and (min-width:375px) and (max-width:768px) {
   .navbar_links {
     display: flex;

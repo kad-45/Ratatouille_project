@@ -2,214 +2,184 @@
   <?php 
   ?>
   <div class="wrapper">
-      <form method="POST" action="/recipe/add" enctype="multipart/form-data">
-          <div class="dbl-field">
-              <div class="field">
-                  <label for="category" class="category">Catégories :</label>
-                  <select class="categories" id="category" name="category_id">
-                      <?php foreach ($params["categories"] as $category): ?>
-                      <option value="<?= $category['id'];?>"><?= $category['name'];?>
-                      </option>
-                      <?php endforeach; ?>
-                  </select>
-              </div>
-          </div>
-          <div class="dbl-field">
-              <div class="field">
-                  <label for="">Titre :</label><span class="required">*</span>
-                  <input type="text" name="title" value="">
-                  <?php if (!empty($params['errors']['title'])) {
-           echo '<div class = "error">' . $params['errors']['title']. '</div>'; }?>
-              </div>
-
-              <div class="field">
-                  <label for="">Temps de préparation : </label><span class="required">*</span>
-                  <input type="time" name="duration" value="--:--">
-                  <?php if (!empty($params['errors']['duration'])) {
+    <form method="POST" action="/recipe/add" enctype="multipart/form-data">
+      <div class="dbl-field">
+        <div class="field">
+          <label for="category" class="category">Catégories :</label>
+          <select class="categories" id="category" name="category_id">
+            <?php foreach ($params["categories"] as $category): ?>
+            <option value="<?= $category['id'];?>"><?= $category['name'];?>
+            </option>
+            <?php endforeach; ?>
+          </select>
+        </div>
+      </div>
+      <div class="dbl-field">
+        <div class="field">
+          <label for="">Titre :</label><span class="required">*</span>
+          <input type="text" name="title" value="">
+          <?php if (!empty($params['errors']['title'])) {
+            echo '<div class = "error">' . $params['errors']['title']. '</div>'; }?>
+        </div>
+        <div class="field">
+          <label for="">Temps de préparation : </label><span class="required">*</span>
+          <input type="time" name="duration" value="--:--">
+          <?php if (!empty($params['errors']['duration'])) {
            echo '<div class = "error">' . $params['errors']['duration']. '</div>'; }?>
-              </div>
-          </div>
-          <div class="field">
-              <div class="message">
-                  <label for="msg">Description :</label><span class="required">*</span>
-                  <textarea id="msg" name="description" value="" placeholder="Saisissez votre Description...">
-                  </textarea>
-              </div>
-          </div>
-          <?php if (!empty($params['errors']['description'])) {
+        </div>
+      </div>
+      <div class="field">
+        <div class="message">
+          <label for="msg">Description :</label><span class="required">*</span>
+          <textarea id="msg" name="description" value="" placeholder="Saisissez votre Description...">
+          </textarea>
+        </div>
+      </div>
+      <?php if (!empty($params['errors']['description'])) {
            echo '<div class = "error">' . $params['errors']['description']. '</div>'; }?>
-          <div id="ingredients">
+      <div id="ingredients">
+        <div class="dbl-field">
+          <div class="field">
+            <label for="add_ingredient">Ingredients :</label>
+            <button type="button" class="add_ingredient" id="add_ingredient" name="ingredients">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        <div class="parent">
+          <div id="fields_ingredient">
+            <?php if(!empty($params['parameters']['name_ingredient']) || !empty($params['parameters']['quantity_ingredient']) || !empty($params['parameters']['unity_ingredient'])): ?>
+            <?php foreach( $params['parameters']['name_ingredient'] as $indice => $value): ?>
+            <div id="recipe_ingredient">
               <div class="dbl-field">
-                  <div class="field">
-                      <label for="add_ingredient">Ingredients :</label>
-                      <button type="button" class="add_ingredient" id="add_ingredient" name="ingredients">
-                          <i class="fa-solid fa-plus"></i>
-                      </button>
-                  </div>
-              </div>
-              <div class="parent">
-                  <div id="fields_ingredient">
-                      <?php if(!empty($params['parameters']['name_ingredient']) || !empty($params['parameters']['quantity_ingredient']) || !empty($params['parameters']['unity_ingredient'])): ?>
-                      <?php foreach( $params['parameters']['name_ingredient'] as $indice => $value): ?>
-                      <div id="recipe_ingredient">
-                          <div class="dbl-field">
-                              <div class="field">
-                                  <label for="js_ingredient_form_name" class="form-label">Nom :</label>
-                                  <input name="name_ingredient[]" type="text"
-                                      value="<?= $params['parameters']['name_ingredient'][$indice] ?>">
-                                  <?php if (!empty($params['errors']['name_ingredient'][$indice])) {
+                <div class="field">
+                  <label for="js_ingredient_form_name" class="form-label">Nom :</label>
+                  <input name="name_ingredient[]" type="text"
+                    value="<?= $params['parameters']['name_ingredient'][$indice] ?>">
+                  <?php if (!empty($params['errors']['name_ingredient'][$indice])) {
                                             echo '<div class="error">' . $params['errors']['name_ingredient'][$indice]. '</div>'; }?>
-                              </div>
-                              <div class="field">
-                                  <label for="ingredient_form_quantity" class="form-label">Quantié :</label>
-                                  <input type="text" name="quantity_ingredient[]"
-                                      value="<?=$params['parameters']['quantity_ingredient'][$indice]  ?>">
-                                  <?php if (!empty($params['errors']['quantity_ingredient'][$indice])) {
+                </div>
+                <div class="field">
+                  <label for="ingredient_form_quantity" class="form-label">Quantié :</label>
+                  <input type="text" name="quantity_ingredient[]"
+                    value="<?=$params['parameters']['quantity_ingredient'][$indice]  ?>">
+                  <?php if (!empty($params['errors']['quantity_ingredient'][$indice])) {
                                           echo '<div class="error">' . $params['errors']['quantity_ingredient'][$indice]. '</div>'; }?>
-                              </div>
-                              <div class="field">
-                                  <label for="ingredient_form_unity">Unité :</label>
-                                  <input type="text" name="unity_ingredient[]"
-                                      value="<?= $params['parameters']['unity_ingredient'][$indice] ?>">
-                                  <?php if (!empty($params['errors']['unity_ingredient'][$indice])) {
+                </div>
+                <div class="field">
+                  <label for="ingredient_form_unity">Unité :</label>
+                  <input type="text" name="unity_ingredient[]"
+                    value="<?= $params['parameters']['unity_ingredient'][$indice] ?>">
+                  <?php if (!empty($params['errors']['unity_ingredient'][$indice])) {
                                           echo '<div class="error">' . $params['errors']['unity_ingredient'][$indice]. '</div>'; }?>
-                              </div>
-                              <div class="field">
-                                  <label for="" style="visibility:hidden;">hidden</label>
-                                  <button type="button" class="input-delet" id="delet-ingredient"
-                                      onclick="removeElement(this)"><i class="fa-solid fa-minus"></i></button>
-                              </div>
-                          </div>
-                      </div>
-                      <?php endforeach ?>
-                      <?php endif; ?>
-                  </div>
+                </div>
+                <div class="field">
+                  <label for="" style="visibility:hidden;">hidden</label>
+                  <button type="button" class="input-delet" id="delet-ingredient" onclick="removeElement(this)"><i
+                      class="fa-solid fa-minus"></i></button>
+                </div>
               </div>
+            </div>
+            <?php endforeach ?>
+            <?php endif; ?>
           </div>
-          <div id="steps">
-              <div class="dbl-field">
-                  <div class="field">
-                      <label for="add_steps">Etapes :</label>
-                      <button type="button" class="add_step" id="add_steps" name="steps"><i
-                              class="fa-solid fa-plus"></i></button>
-                  </div>
-              </div>
-              <div id="fields_steps">
-                  <?php if(!empty($params['parameters']['order_step']) || !empty($params['parameters']['description_step'])): ?>
-                  <?php foreach( $params['parameters']['order_step'] as $indice => $value): ?>
-                  <div id="recipe_steps">
-                      <div class="dbl-field">
-                          <div class="field">
-                              <label for="step_number" class="form-label">N° étape :</label>
-                              <input type="text" name="order_step[]"
-                                  value="<?= $params['parameters']['order_step'][$indice] ?>" class="form-control"
-                                  id="step_number">
-                              <?php if (!empty($params['errors']['order_step'][$indice])) {
-                                            echo '<div class="error">' . $params['errors']['order_step'][$indice]. '</div>'; }?>
-                          </div>
-                          <div class="field">
-                              <label for="step_description">Description :</label>
-                              <input type="textarea" name="description_step[]"
-                                  value="<?= $params['parameters']['description_step'][$indice] ?>"
-                                  id="step_description1">
-                              <?php if (!empty($params['errors']['description_step'][$indice])) {
-                                            echo '<div class="error">' . $params['errors']['description_step'][$indice]. '</div>'; }?>
-                          </div>
-                          <div class="field">
-                              <label for="" style="visibility:hidden;">hidden</label>
-                              <button type="button" class="input-delet" id="delet-step" onclick="removeElement(this)"><i
-                                      class="fa-solid fa-minus"></i></button>
-                          </div>
-                      </div>
-                  </div>
-                  <?php endforeach; ?>
-                  <?php endif; ?>
-              </div>
+        </div>
+      </div>
+      <div id="steps">
+        <div class="dbl-field">
+          <div class="field">
+            <label for="add_steps">Etapes :</label>
+            <button type="button" class="add_step" id="add_steps" name="steps"><i class="fa-solid fa-plus"></i></button>
           </div>
-          <div class="dbl-field">
+        </div>
+        <div id="fields_steps">
+          <?php if(!empty($params['parameters']['order_step']) || !empty($params['parameters']['description_step'])): ?>
+          <?php foreach( $params['parameters']['order_step'] as $indice => $value): ?>
+          <div id="recipe_steps">
+            <div class="dbl-field">
               <div class="field">
-                  <label for="image">Image :</label><span class="required">*</span>
-                  <input type="file" class="input" id="image" name="img">
-                  <?php if (!empty($params['errors']['img'])) {
-                      echo '<div class="error">' . $params['errors']['img']. '</div>'; }?>
+                <label for="step_number" class="form-label">N° étape :</label>
+                <input type="text" name="order_step[]" value="<?= $params['parameters']['order_step'][$indice] ?>"
+                  class="form-control" id="step_number">
+                <?php if (!empty($params['errors']['order_step'][$indice])) {
+                                            echo '<div class="error">' . $params['errors']['order_step'][$indice]. '</div>'; }?>
               </div>
+              <div class="field">
+                <label for="step_description">Description :</label>
+                <input type="textarea" name="description_step[]"
+                  value="<?= $params['parameters']['description_step'][$indice] ?>" id="step_description1">
+                <?php if (!empty($params['errors']['description_step'][$indice])) {
+                                            echo '<div class="error">' . $params['errors']['description_step'][$indice]. '</div>'; }?>
+              </div>
+              <div class="field">
+                <label for="" style="visibility:hidden;">hidden</label>
+                <button type="button" class="input-delet" id="delet-step" onclick="removeElement(this)"><i
+                    class="fa-solid fa-minus"></i></button>
+              </div>
+            </div>
           </div>
-          <div class="button-area">
-              <button type="submit">Ajouter une recette</button>
-          </div>
-      </form>
+          <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
+      </div>
+      <div class="dbl-field">
+        <div class="field">
+          <label for="image">Image :</label><span class="required">*</span>
+          <input type="file" class="input" id="image" name="img">
+          <?php if (!empty($params['errors']['img'])) {
+                      echo '<div class="error">' . $params['errors']['img']. '</div>'; }?>
+        </div>
+      </div>
+      <div class="button-area">
+        <button type="submit">Ajouter une recette</button>
+      </div>
+    </form>
   </div>
 
   <!-------------------------Partie invisible Ingredients de formulaire qu'on va injecter avec JS---------->
   <div id="h_ingredient" style="display:none;">
-      <div id="recipe_ingredient">
-          <div class="dbl-field">
-              <div class="field">
-                  <label for="js_ingredient_form_name" class="form-label">Nom :</label>
-                  <input name="name_ingredient[]" type="text">
-              </div>
-              <div class="field">
-                  <label for="ingredient_form_quantity" class="form-label">Quantié :</label>
-                  <input type="text" name="quantity_ingredient[]">
-              </div>
-              <div class="field">
-                  <label for="ingredient_form_unity">Unité :</label>
-                  <input type="text" name="unity_ingredient[]">
-              </div>
-              <div class="field">
-                  <label for="" style="visibility:hidden;">hidden</label>
-                  <button type="button" class="input-delet fa-solid fa-minus" id="delet-ingredient"
-                      onclick="removeElement(this)"></button>
-              </div>
-          </div>
+    <div id="recipe_ingredient">
+      <div class="dbl-field">
+        <div class="field">
+          <label for="js_ingredient_form_name" class="form-label">Nom :</label>
+          <input name="name_ingredient[]" type="text">
+        </div>
+        <div class="field">
+          <label for="ingredient_form_quantity" class="form-label">Quantié :</label>
+          <input type="text" name="quantity_ingredient[]">
+        </div>
+        <div class="field">
+          <label for="ingredient_form_unity">Unité :</label>
+          <input type="text" name="unity_ingredient[]">
+        </div>
+        <div class="field">
+          <label for="" style="visibility:hidden;">hidden</label>
+          <button type="button" class="input-delet fa-solid fa-minus" id="delet-ingredient"
+            onclick="removeElement(this)"></button>
+        </div>
       </div>
+    </div>
   </div>
 
-  <!---------------------Partie invisible Etapes de formulaire  qu'on va injecter avec JS--------->
+  <!------------Partie invisible Etapes de formulaire  qu'on va injecter avec JS--------->
 
   <div id="h_steps" style="display:none;">
-      <div id="recipe_steps">
-          <div class="dbl-field">
-              <div class="field">
-                  <label for="step_number" class="form-label">N° étape :</label>
-                  <input type="text" name="order_step[]" value="" class="form-control" id="step_number">
-              </div>
-              <div class="field">
-                  <label for="step_description">Description :</label>
-                  <input type="textarea" name="description_step[]" value="" id="step_description1">
-              </div>
-              <div class="field">
-                  <button type="button" class="input-delet fa-solid fa-minus" id="delet-step"
-                      onclick="removeElement(this)"></button>
-              </div>
-          </div>
+    <div id="recipe_steps">
+      <div class="dbl-field">
+        <div class="field">
+          <label for="step_number" class="form-label">N° étape :</label>
+          <input type="text" name="order_step[]" value="" class="form-control" id="step_number">
+        </div>
+        <div class="field">
+          <label for="step_description">Description :</label>
+          <input type="textarea" name="description_step[]" value="" id="step_description1">
+        </div>
+        <div class="field">
+          <button type="button" class="input-delet fa-solid fa-minus" id="delet-step"
+            onclick="removeElement(this)"></button>
+        </div>
       </div>
+    </div>
   </div>
   <?php require_once '../templates/template_part/_footer.phtml';?>
-
-
-
-
-  <script>
-const addIngredient = document.querySelector('#add_ingredient');
-addIngredient.addEventListener("click", (e) => {
-    let rcipeIngredient = document.querySelector('#h_ingredient #recipe_ingredient');
-    let clone = rcipeIngredient.cloneNode(true);
-    document.querySelector('#fields_ingredient')
-        .appendChild(clone);
-
-});
-const addSteps = document.querySelector('#add_steps');
-addSteps.addEventListener("click", (e) => {
-    let steps = document.querySelector('#h_steps #recipe_steps');
-    let clone = steps.cloneNode(true);
-    document.querySelector('#fields_steps')
-        .appendChild(clone);
-
-});
-
-
-function removeElement(elm) {
-    elm.parentNode.parentNode.parentNode.remove();
-}
-  </script>
+  <script src="../../assets/js/recipe/recipe.js"></script>

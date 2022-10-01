@@ -253,8 +253,6 @@
     margin-bottom: 20px;
   }
 
-  
-
   .form-contact .button-area {
     flex-direction: column;
   }
@@ -308,7 +306,10 @@
 }
 
 @media screen and (min-width:821px) {
-
+  .maps {
+    margin-bottom: 20%;
+    margin-left: 11%;
+  }
 }
 
 

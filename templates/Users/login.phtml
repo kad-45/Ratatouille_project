@@ -1,27 +1,22 @@
-<main class="main_login">
-    <div id="container">
-        <!-- zone de connexion -->
-
+    <!-- Formulaire de connexion -->
+    <main class="main_login">
+      <div class="container_login">
         <form action="" method="POST" class="form-login">
-            <h1>Connexion</h1>
-
-            <label><b>Email</b></label>
-            <input type="text" placeholder="Entrer votre email" name="email" required>
-
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
-
-            <input type="submit" id='submit' value='LOGIN'>
-            <div class="card-footer">
-                <div class="d-flex justify-content-center links">
-                    Vous n'avez pas de compte ?<a href="/user/add">S'inscrire</a>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <a href="#">Mot de passe oublié?</a>
-                </div>
+          <h1>Connexion</h1>
+          <label><b>Email</b></label>
+          <input type="text" placeholder="Entrer votre email" name="email" required>
+          <label><b>Password</b></label>
+          <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+          <input type="submit" id='submit' value='LOGIN'>
+          <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+              Vous n'avez pas de compte ?<a href="/user/add">S'inscrire</a>
             </div>
-
+            <div class="d-flex justify-content-center">
+              <a href="#">Mot de passe oublié?</a>
+            </div>
+          </div>
         </form>
-    </div>
-</main>
-<?php require_once '../templates/template_part/_footer.phtml';?>
+      </div>
+    </main>
+    <?php require_once '../templates/template_part/_footer.phtml';?>
