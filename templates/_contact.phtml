@@ -1,113 +1,113 @@
 <?php if (!empty($params['successMsg'])):?>
 <div class="successMsg">
-    <?= $params['successMsg']; ?>
+  <?= $params['successMsg']; ?>
 </div>
 <?php endif ?>
 <div class="container-contact">
-    <div class="header">
-        <h1>Contactez l’équipe de Gastronomia</h1>
-        <p>Vous êtes annonceurs et souhaitez travailler avec Gastronomia ? Vous souhaitez nous proposer un
-            partenariat ?
-            Vous avez une question relative au blog ? Contactez-nous à l’aide du formulaire de contact ci-dessous.
-        </p>
+  <div class="header">
+    <h1>Contactez l’équipe de Gastronomia</h1>
+    <p>Vous êtes annonceurs et souhaitez travailler avec Gastronomia ? Vous souhaitez nous proposer un
+      partenariat ?
+      Vous avez une question relative au blog ? Contactez-nous à l’aide du formulaire de contact ci-dessous.
+    </p>
+  </div>
+  <div class="card-contact">
+    <div class="card-phone">
+      <a href="tel:0555555555">
+        <div class="phone">
+          <i class="fa-sharp fa-solid fa-phone-volume"></i>
+        </div>
+        <h4>Par téléphone</h4>
+        <p class="text-small-para">05 55 55 5555 </p>
+      </a>
     </div>
-    <div class="card-contact">
-        <div class="card-phone">
-            <a href="tel:0555555555">
-                <div class="phone">
-                    <i class="fa-sharp fa-solid fa-phone-volume"></i>
-                </div>
-                <h4>Par téléphone</h4>
-                <p class="text-small-para">05 55 55 5555 </p>
-            </a>
+    <div class="card-email">
+      <a href="mailto:contact@3wa.fr">
+        <div class="email">
+          <i class="fa-solid fa-at"></i>
         </div>
-        <div class="card-email">
-            <a href="mailto:contact@3wa.fr">
-                <div class="email">
-                    <i class="fa-solid fa-at"></i>
-                </div>
-                <h4>Par email</h4>
-                <p class="text-small-para">contact@3wa.fr</p>
-            </a>
-        </div>
-        <div class="card-address">
-            <div class="address">
-                <i class="fa-solid fa-map-location-dot"></i>
-            </div>
-            <h4>Venez nous rencontrer</h4>
-            <p class="text-small-para">30 cours chapeau rouge, Bordeaux</p>
-        </div>
+        <h4>Par email</h4>
+        <p class="text-small-para">contact@3wa.fr</p>
+      </a>
     </div>
-    <form id="contact" name="contact" class="form-contact" method="POST" action="" enctype="multipart/form-data">
-        <div class="dbl-field">
-            <div class="field">
-                <label for="name">Nom :</label><span class="required">*</span>
-                <input type="text" id="name" name="name" placeholder="Entrez votre nom"
-                    value="<?= (!empty($params['parametrs']['name']))? $params['parametrs']['name']:''?>">
-                <span class="errs"></span>
-                <i class="fas fa-user"></i>
-                <?php if (!empty($params['errors']['name'])): ?>
-                <div class="errors">
-                    <?= $params['errors']['name']?>
-                </div>
-                <?php endif ?>
-            </div>
-            <div class="field">
-                <label for="email">Email :</label><span class="required">*</span>
-                <input type="text" id="email" name="email" placeholder="Entrez votre Email"
-                    value="<?= (!empty($params['parametrs']['email']))? $params['parametrs']['email']:''?>">
-                <span class="errs"></span>
-                <i class="fa-solid fa-envelope"></i>
-                <?php if (!empty($params['errors']['email'])): ?>
-                <div class="errors">
-                    <?= $params['errors']['email']?>
-                </div>
-                <?php endif ?>
-            </div>
-        </div>
-        <div class="dbl-field">
-            <div class="field">
-                <label for="phone">N° Téléphone :</label><span class="required">*</span>
-                <input type="text" id="phone" name="phone" placeholder="Entrez votre N° Téléphone"
-                    value="<?= (!empty($params['parametrs']['phone']))? $params['parametrs']['phone']:''?>">
-                <span class="errs"></span>
-                <i class="fa-solid fa-phone-alt"></i>
-                <?php if (!empty($params['errors']['phone'])): ?>
-                <div class="errors">
-                    <?= $params['errors']['phone']?>
-                </div>
-                <?php endif ?>
-            </div>
-            <div class="field">
-                <label for="name">Nom de société :</label>
-                <input type="text" name="company" placeholder="Votre société">
-                <i class="fa-solid fa-building"></i>
-            </div>
-        </div>
-        <div class="message">
-            <label for="msg">Message :</label><span class="required">*</span>
-            <textarea id="msg" name="message"
-                placeholder="Saisissez votre message"><?= (!empty($params['parametrs']['message']))? $params['parametrs']['message']:''?></textarea>
-            <span class="errs"></span>
-            <i class="material-icons">message</i>
-            <?php if (!empty($params['errors']['message'])): ?>
-            <div class="errors">
-                <?= $params['errors']['message']?>
-            </div>
-            <?php endif ?>
-        </div>
-        <div class="button-area">
-            <button type="submit" name="valider">Envoyez le message</button>
-            <span class="error">Merci pour votre message. Notre équipe prendra contact avec vous sous 48h.
-            </span>
-        </div>
-    </form>
-    <div class="maps">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.9916853245804!2d-0.5746634846869473!3d44.84210268275759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527d062aa9667%3A0x1508c526d582889f!2s30%20Cr%20du%20Chapeau-Rouge%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1663672890807!5m2!1sfr!2sfr"
-            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="card-address">
+      <div class="address">
+        <i class="fa-solid fa-map-location-dot"></i>
+      </div>
+      <h4>Venez nous rencontrer</h4>
+      <p class="text-small-para">30 cours chapeau rouge, Bordeaux</p>
     </div>
+  </div>
+  <form id="contact" name="contact" class="form-contact" method="POST" action="" enctype="multipart/form-data">
+    <div class="dbl-field">
+      <div class="field">
+        <label for="name">Nom :</label><span class="required">*</span>
+        <input type="text" id="name" name="name" placeholder="Entrez votre nom"
+          value="<?= (!empty($params['parametrs']['name']))? $params['parametrs']['name']:''?>">
+        <span class="errs"></span>
+        <i class="fas fa-user"></i>
+        <?php if (!empty($params['errors']['name'])): ?>
+        <div class="errors">
+          <?= $params['errors']['name']?>
+        </div>
+        <?php endif ?>
+      </div>
+      <div class="field">
+        <label for="email">Email :</label><span class="required">*</span>
+        <input type="text" id="email" name="email" placeholder="Entrez votre Email"
+          value="<?= (!empty($params['parametrs']['email']))? $params['parametrs']['email']:''?>">
+        <span class="errs"></span>
+        <i class="fa-solid fa-envelope"></i>
+        <?php if (!empty($params['errors']['email'])): ?>
+        <div class="errors">
+          <?= $params['errors']['email']?>
+        </div>
+        <?php endif ?>
+      </div>
+    </div>
+    <div class="dbl-field">
+      <div class="field">
+        <label for="phone">N° Téléphone :</label><span class="required">*</span>
+        <input type="text" id="phone" name="phone" placeholder="Entrez votre N° Téléphone"
+          value="<?= (!empty($params['parametrs']['phone']))? $params['parametrs']['phone']:''?>">
+        <span class="errs"></span>
+        <i class="fa-solid fa-phone-alt"></i>
+        <?php if (!empty($params['errors']['phone'])): ?>
+        <div class="errors">
+          <?= $params['errors']['phone']?>
+        </div>
+        <?php endif ?>
+      </div>
+      <div class="field">
+        <label for="name">Nom de société :</label>
+        <input type="text" name="company" placeholder="Votre société">
+        <i class="fa-solid fa-building"></i>
+      </div>
+    </div>
+    <div class="message">
+      <label for="msg">Message :</label><span class="required">*</span>
+      <textarea id="msg" name="message"
+        placeholder="Saisissez votre message"><?= (!empty($params['parametrs']['message']))? $params['parametrs']['message']:''?></textarea>
+      <span class="errs"></span>
+      <i class="material-icons">message</i>
+      <?php if (!empty($params['errors']['message'])): ?>
+      <div class="errors">
+        <?= $params['errors']['message']?>
+      </div>
+      <?php endif ?>
+    </div>
+    <div class="button-area">
+      <button type="submit" name="valider">Envoyez le message</button>
+      <span class="error">Merci pour votre message. Notre équipe prendra contact avec vous sous 48h.
+      </span>
+    </div>
+  </form>
+  <div class="maps">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.9916853245804!2d-0.5746634846869473!3d44.84210268275759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527d062aa9667%3A0x1508c526d582889f!2s30%20Cr%20du%20Chapeau-Rouge%2C%2033000%20Bordeaux!5e0!3m2!1sfr!2sfr!4v1663672890807!5m2!1sfr!2sfr"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
 </div>
 <?php require_once '../templates/template_part/_footer.phtml';?>
 <script src="../../assets/js/home/contact.js"></script>
