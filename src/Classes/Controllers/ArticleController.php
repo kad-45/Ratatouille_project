@@ -224,6 +224,7 @@ class ArticleController extends AbstractController{
         && isset($_POST['article_id'])
    
       ) {
+        /* unlink((dirname(__DIR__, 3)) . '/public' . $article['file_path_img']);*/
        $article = $articleRepository->delete(['id' => $_POST['article_id']]);
        
         if (is_nan($_SESSION['categoryArticle'])) 
@@ -260,5 +261,8 @@ class ArticleController extends AbstractController{
   }
 
 }
+
+
+
 
 ?>
