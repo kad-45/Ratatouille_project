@@ -268,7 +268,8 @@ class RecipeController extends AbstractController {
               $ingredientRepository->update($ing['id_ingredient'], $ingredient);
 
             }
-            //mise a jour des etapes associés a la recette            
+            //mise a jour des etapes associés a la recette
+            
             
             foreach ($steps as $stp)
             {

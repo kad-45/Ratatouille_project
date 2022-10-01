@@ -1,5 +1,6 @@
 <?php
 namespace App\Classes\Core;
+/*require_once '../config/config.php';*/
 
 use App\Classes\Repositories\UserRepository;
 use DateTimeImmutable;
