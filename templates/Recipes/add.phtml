@@ -138,7 +138,7 @@
 
   <!-------------------------Partie invisible Ingredients de formulaire qu'on va injecter avec JS---------->
   <div id="h_ingredient" style="display:none;">
-    <div id="recipe_ingredient">
+    <<<<<<< HEAD <div id="recipe_ingredient">
       <div class="dbl-field">
         <div class="field">
           <label for="js_ingredient_form_name" class="form-label">Nom :</label>
@@ -158,7 +158,7 @@
             onclick="removeElement(this)"></button>
         </div>
       </div>
-    </div>
+  </div>
   </div>
 
   <!------------Partie invisible Etapes de formulaire  qu'on va injecter avec JS--------->
@@ -183,3 +183,75 @@
   </div>
   <?php require_once '../templates/template_part/_footer.phtml';?>
   <script src="../../assets/js/recipe/recipe.js"></script>
+  =======
+  <div id="recipe_ingredient">
+    <div class="dbl-field">
+      <div class="field">
+        <label for="js_ingredient_form_name" class="form-label">Nom :</label>
+        <input name="name_ingredient[]" type="text">
+      </div>
+      <div class="field">
+        <label for="ingredient_form_quantity" class="form-label">Quantié :</label>
+        <input type="text" name="quantity_ingredient[]">
+      </div>
+      <div class="field">
+        <label for="ingredient_form_unity">Unité :</label>
+        <input type="text" name="unity_ingredient[]">
+      </div>
+      <div class="field">
+        <label for="" style="visibility:hidden;">hidden</label>
+        <button type="button" class="input-delet fa-solid fa-minus" id="delet-ingredient"
+          onclick="removeElement(this)"></button>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!---------------------Partie invisible Etapes de formulaire  qu'on va injecter avec JS--------->
+
+  <div id="h_steps" style="display:none;">
+    <div id="recipe_steps">
+      <div class="dbl-field">
+        <div class="field">
+          <label for="step_number" class="form-label">N° étape :</label>
+          <input type="text" name="order_step[]" value="" class="form-control" id="step_number">
+        </div>
+        <div class="field">
+          <label for="step_description">Description :</label>
+          <input type="textarea" name="description_step[]" value="" id="step_description1">
+        </div>
+        <div class="field">
+          <button type="button" class="input-delet fa-solid fa-minus" id="delet-step"
+            onclick="removeElement(this)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php require_once '../templates/template_part/_footer.phtml';?>
+
+
+
+
+  <script>
+const addIngredient = document.querySelector('#add_ingredient');
+addIngredient.addEventListener("click", (e) => {
+  let rcipeIngredient = document.querySelector('#h_ingredient #recipe_ingredient');
+  let clone = rcipeIngredient.cloneNode(true);
+  document.querySelector('#fields_ingredient')
+    .appendChild(clone);
+
+});
+const addSteps = document.querySelector('#add_steps');
+addSteps.addEventListener("click", (e) => {
+  let steps = document.querySelector('#h_steps #recipe_steps');
+  let clone = steps.cloneNode(true);
+  document.querySelector('#fields_steps')
+    .appendChild(clone);
+
+});
+
+
+function removeElement(elm) {
+  elm.parentNode.parentNode.parentNode.remove();
+}
+  </script>

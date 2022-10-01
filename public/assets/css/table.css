@@ -1,0 +1,58 @@
+
+/*-----------table des utilisateurs enregistrés dans la BDD et des recettes-----------*/
+
+.table {
+  min-width: 100%;
+  min-height: 100%;
+  padding: 20px;
+}
+
+.table table {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+tbody {
+  text-align: center;
+  color:#235a81;
+  font-size: 0.8rem;
+}
+
+tr {
+  background: #ccc;
+}
+
+tr:nth-child  {
+  background: #fff;
+}
+
+tr td {
+  padding: 6px;
+}
+
+td a {
+  text-decoration: none;
+  padding: 1rem;
+}
+
+td a:hover {
+  color: #fff;
+}
+
+tr:hover {
+  background: #444;
+  color: #fff;
+}
+
+thead th {
+  background: #888;
+  font-size: .9rem;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+

@@ -88,16 +88,10 @@ class IngredientController extends AbstractController {
             'message' => $msg
         ]);
 
-
         }
-       
-       
+      
     }
-    
-
-    
+        
 }
-
-
 
 ?>

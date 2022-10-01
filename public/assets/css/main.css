@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap');
 
@@ -1982,3 +1983,14 @@ thead th {
 
 
 
+=======
+@import 'accueil.css';
+@import 'contact.css';
+@import 'footer.css';
+@import 'form.css';
+@import 'header.css';
+@import 'login.css';
+@import 'modal.css';
+@import 'recipe.css';
+@import 'table.css';
+>>>>>>> 2cf1a2c8ddf1d3a624ff593c82e9ad114efffcf4
