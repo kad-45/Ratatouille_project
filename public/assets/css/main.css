@@ -386,12 +386,17 @@ ul > h3 {
 
 /*---- css de méssage d'erreur----*/
 .successMsg {
-  margin-left: 10%;
-  width: 80%;
+  margin: 2rem auto;
+  width: 40%;
   text-align: center;
   background-color: rgba(29, 158, 29, .8);
   color: white;
   font-size: 1.2rem;
+}
+
+.errors {
+  color: rgba(255, 0, 0, 1);
+  margin-top: -2rem;
 }
 
 .sup {
@@ -516,7 +521,10 @@ ul > h3 {
 
 .close_modal_ingredient:hover, .close_modal_ingredient:focus, 
 .close_modal_step:hover, .close_modal_step:focus,
-.close_modal_ingredient_delete:hover, .close_modal_ingredient_delete:focus
+.close_modal_ingredient_delete:hover, .close_modal_ingredient_delete:focus {
+  color: #f44336;
+  cursor: pointer;
+}
 .close_modal_step_delete:hover, .close_modal_step_delete:focus {
   color: #f44336;
   cursor: pointer;
@@ -1973,7 +1981,7 @@ thead th {
 
 @media screen and (min-width:1024px) {
   .form-login {
-    margin-top: -6rem;
+    margin-top: -4rem;
     margin-bottom: 50%;
   }
 }

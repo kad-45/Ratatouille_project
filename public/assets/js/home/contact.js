@@ -123,19 +123,18 @@ const checkName = function() {
 
   const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
-  console.log('toto');
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
     console.log('toto');
-
       let isNameValid = checkName();
       let isEmailValid = checkEmail();
       let isPhoneValid =  checkPhone();
       let isMessageValid = checkMessage();
 
       let isFormValid = isNameValid && isEmailValid && isMessageValid && isPhoneValid;
-    
-    return isFormValid;
+      if(!isFormValid){
+        e.preventDefault();
+      }
+      
   });
 
   form.addEventListener('input', function (e) {

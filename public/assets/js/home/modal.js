@@ -8,12 +8,9 @@ let myBtn = document.querySelectorAll('#myBtn');
 myBtn.forEach(element => {
   element.addEventListener('click', () => {
    let name = '#'+ element.getAttribute('model') + '_deleted_id';
-   console.log(name);
    let data = 'data-' + element.getAttribute('model') + '_id';
-   console.log(data);
     //je dois cibler le champ type hidden qui contient le (name=recipe_id)
     document.querySelector(name).value = element.getAttribute(data);
-    console.log(element.getAttribute(data));
     modal.style.display = 'block';
   })
 });

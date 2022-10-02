@@ -43,7 +43,6 @@ spanIngredient.addEventListener('click', () => {
 
 const cancelBtn = document.querySelector('.btn_cancel_ingredient');
 cancelBtn.addEventListener('click', () => {
-    console.log('totot!!!!');
     modalIngredient.style.display = 'none';
 });
 
@@ -109,7 +108,6 @@ myBtnStep.forEach(element => {
         
         document.getElementById('id_step').value = element.parentElement.parentElement
             .getAttribute('id');
-        //console.log('toto!!!!!!!!');
         document.querySelector('#id_nbr_step').value = element.parentElement
             .parentElement
             .children[0].textContent;
@@ -156,7 +154,6 @@ const modalStepDelete = document.querySelector('.modal_step_delete');
 let myBtnDeleteStep = document.querySelectorAll('.btn_delete_step');
 myBtnDeleteStep.forEach(element => {
     element.addEventListener('click', () => {
-        alert(element.previousSibling.parentElement.parentElement.getAttribute('id'));
         document.querySelector('#id_step_delete').value = element.previousSibling.parentElement
             .parentElement.getAttribute('id');
         modalStepDelete.style.display = 'block';

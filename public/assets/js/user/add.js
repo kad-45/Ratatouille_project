@@ -2,11 +2,7 @@
 function confirmed(elem) {
   let elmTabConfirmed = elem.name.split('_');
   let selectorElem = '#' + elem.id;
-
-  console.log(elmTabConfirmed);
   let selector = '#' + elmTabConfirmed[1];
-  console.log(selector);
-
   let elementVal = document.querySelector(selector).value
   if (elem.value !== elementVal) {
 

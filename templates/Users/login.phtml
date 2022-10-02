@@ -1,4 +1,15 @@
     <!-- Formulaire de connexion -->
+    <?php if (!empty($params['successMsg'])):?>
+    <div class="successMsg">
+      <?= $params['successMsg']; ?>
+    </div>
+    <?php endif ?>
+    <?php if (!empty($params['errorMsg'])):?>
+    <div class="errorMsg">
+      <?= $params['errorMsg']; ?>
+    </div>
+    <?php endif ?>
+
     <main class="main_login">
       <div class="container_login">
         <form action="" method="POST" class="form-login">

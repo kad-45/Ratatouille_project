@@ -40,11 +40,11 @@ class ArticleController extends AbstractController{
             'libelle' => $libelle
         ]);
     }
-
      
     /**
      * @return string
     */
+    
     public function add()
     {
 

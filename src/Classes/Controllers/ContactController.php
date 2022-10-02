@@ -8,7 +8,8 @@ class ContactController extends AbstractController {
   /**
    * @return string|void
    */
-  public function index()
+  
+   public function index()
   {
         if($_SERVER['REQUEST_METHOD'] === 'GET') {
             $this->renderView('../../templates/_contact.phtml', [], []);

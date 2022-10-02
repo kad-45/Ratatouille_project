@@ -1,8 +1,13 @@
-<?php if (!empty($params['successMsg'])):?>
+<?php
+
+use App\Classes\Core\Service;
+
+ if (!empty($params['successMsg'])):?>
 <div class="successMsg">
   <?= $params['successMsg']; ?>
 </div>
 <?php endif ?>
+<?php  if ((Service::ifUserIsConnected()) && (isset($_SESSION['role']) && $_SESSION['role'] === ROLE_ADMIN)):?>
 <h1>Liste des utilisateurs</h1>
 <?php
 if (!empty($params) && isset($params)):?>
@@ -41,6 +46,8 @@ if (!empty($params) && isset($params)):?>
   </table>
 </div>
 <?php endif ?>
+<?php endif ?>
+
 <?php require_once dirname(__DIR__)."/Users/delete.phtml";?>
 <?php require_once '../templates/template_part/_footer.phtml';?>
 <script src="../../assets/js/home/modal.js"></script>

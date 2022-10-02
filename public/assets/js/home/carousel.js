@@ -20,7 +20,6 @@ window.onload = () => {
   elements.appendChild(firstImage);
 
   slides = Array.from(elements.children);
-  //console.log(slides);
 
   //On récupère la largeur d'une slide
   slideWidth = diapo.getBoundingClientRect().width;
