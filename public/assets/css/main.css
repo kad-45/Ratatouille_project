@@ -399,6 +399,13 @@ ul > h3 {
   margin-top: -2rem;
 }
 
+.errorMsg {
+  color: rgba(255, 0, 0, 1);
+  margin: 2rem auto;
+  width: 40%;
+  text-align: center;
+}
+
 .sup {
   color: rgba(54, 54, 239, .8);
 }
@@ -1090,6 +1097,10 @@ form .field .input
 }
 
 /*--------CSS de tous les tableaux----*/
+.list {
+  text-align: center;
+  margin-top: 2rem;
+}
 .table {
   min-width: 100%;
   min-height: 100%;
@@ -1099,7 +1110,7 @@ form .field .input
 .table table {
   width: 90%;
   height: 100%;
-  margin: 0 auto;
+  margin: 0 auto 20% auto;
   padding: 15px;
 }
 

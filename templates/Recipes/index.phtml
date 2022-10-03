@@ -4,8 +4,7 @@ use App\Classes\Core\Service;
 
 if ( !empty($params['successMsg'])) {
 echo "<div class='successMsg'>{$params['successMsg']}</div>";
-}
-?>
+}?>
 <?php  if (Service:: ifUserIsConnected()):?>
 <a href="/recipe/add" type="submit" class="btn-add-recipe">
   Créer une recette

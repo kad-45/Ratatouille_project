@@ -20,7 +20,6 @@ class UserController extends AbstractController {
         $errorMsg = "Une authentification est obligatoire pour accéder à cette page";
         return $this->renderView('../../templates/Users/login.phtml', [], [
           'errorMsg' =>$errorMsg
-          /*'users' => $userRepository->findAll()*/
           ]);
            
       }

@@ -22,7 +22,7 @@ class AbstractRepository extends Dbase
     
     /** 
      * cherche touts les lignes par critère
-     * select * from <<name_table> where columns_name = ? and columns_name2 = ? 
+     * select * from <<name_table>> where columns_name = ? and columns_name2 = ? 
      * @param array.
      * @return array.
      */
@@ -147,26 +147,6 @@ class AbstractRepository extends Dbase
             return $this->db->query($sql);
         }
     }
-
-    
-    
-    /** 
-     * Transforme les données en Objet Model
-     */
-
-    public function hydrate(array $datas)
-    {
-        foreach($datas as $key => $value){
-            $setter = 'set'.ucfirst($key);
-
-            if(method_exists($this, $setter)){
-                $this->$setter($value);
-            }
-        }
-        return $this;
-    }
-
-
 
 
 }

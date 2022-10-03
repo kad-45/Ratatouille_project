@@ -8,7 +8,7 @@ use App\Classes\Core\Service;
 </div>
 <?php endif ?>
 <?php  if ((Service::ifUserIsConnected()) && (isset($_SESSION['role']) && $_SESSION['role'] === ROLE_ADMIN)):?>
-<h1>Liste des utilisateurs</h1>
+<h1 class="list">Liste des utilisateurs</h1>
 <?php
 if (!empty($params) && isset($params)):?>
 <div class="table">
