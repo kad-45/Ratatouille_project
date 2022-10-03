@@ -51,9 +51,10 @@ echo "<div class='successMsg'>{$params['successMsg']}</div>";
     <?php endforeach ?>
   </div>
   <?php else : ?>
-  <div> Aucune recette </div>
+  <div class="errorMsg"> Aucune recette </div>
   <?php endif ?>
 </div>
 <?php require_once dirname(__DIR__)."/Recipes/template_part/deleted_modale.phtml";?>
 <?php require_once '../templates/template_part/_footer.phtml';?>
-<script src="../../assets/js/home/modal.js"></script>
+<script src=" ../../assets/js/home/modal.js">
+</script>

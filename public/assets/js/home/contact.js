@@ -124,7 +124,6 @@ const checkName = function() {
   const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
   form.addEventListener('submit', (e) => {
-    console.log('toto');
       let isNameValid = checkName();
       let isEmailValid = checkEmail();
       let isPhoneValid =  checkPhone();

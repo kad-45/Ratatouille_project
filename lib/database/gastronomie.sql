@@ -7,6 +7,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `gastronomie_blog`
 --
+CREATE DATABASE IF NOT EXISTS `gastronomie_blog`;
 
 -- --------------------------------------------------------
 --

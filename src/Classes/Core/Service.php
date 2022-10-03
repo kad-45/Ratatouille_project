@@ -1,6 +1,5 @@
 <?php
 namespace App\Classes\Core;
-/*require_once '../config/config.php';*/
 
 use App\Classes\Repositories\UserRepository;
 use DateTimeImmutable;
@@ -29,8 +28,7 @@ class Service {
       
       return $filePath;
     }
-          
-          
+                
     //Méthode qui renomme le fichier selon un new DateTimeImmutable("now"))->format("Ymdhis") et l'extention de fichier (.png).
     /**
      * @param string $filename
