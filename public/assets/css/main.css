@@ -1841,7 +1841,7 @@ thead th {
     width: 140px;
   }
 
-  .four:hover .dropdown_content, .fifth:hover .dropdown_content{
+  .four:hover .dropdown_content, .fifth:hover .dropdown_content {
     display: block;
     margin-left: 1rem;
     position: absolute;
